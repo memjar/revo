@@ -60,7 +60,7 @@ describe("setup workflow", () => {
     );
     expect(result.status).toBe("needs_human");
     expect(result.remediation).toBe(
-      "REA analysis skill could not be installed or verified. Check permissions for its planned skill directories, then rerun setup.",
+      "Revo analysis skill could not be installed or verified. Check permissions for its planned skill directories, then rerun setup.",
     );
   });
 

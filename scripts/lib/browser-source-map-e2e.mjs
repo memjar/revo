@@ -22,7 +22,7 @@ export async function verifyBrowserSourceMap(
   const root = await mkdtemp(join(tmpdir(), "rea-browser-source-map-"));
   const env = {
     ...process.env,
-    REA_LOG_LEVEL: "silent",
+    REVO_LOG_LEVEL: "silent",
     HOPPER_LAUNCHER_PATH: "/rea-unconfigured-provider/hopper",
   };
   const cli = async (...args) => {

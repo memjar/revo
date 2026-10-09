@@ -23,7 +23,7 @@ export async function verifyLargeScreenshotE2e(endpoint, origin) {
   const entrypoint = fileURLToPath(new URL("../rea.mjs", import.meta.url));
   const env = {
     PATH: process.env.PATH ?? "/usr/bin:/bin",
-    REA_LOG_LEVEL: "silent",
+    REVO_LOG_LEVEL: "silent",
     HOPPER_LAUNCHER_PATH: "/rea-unconfigured-deep-provider/hopper",
   };
   let client;

@@ -75,7 +75,7 @@ const inventory = (format: "apk" | "ipa" | "directory", digit: string) => {
 
 const provider = {
   id: "rea-artifact-graph",
-  name: "REA safe artifact graph provider",
+  name: "Revo safe artifact graph provider",
   version: "1",
 } as const;
 

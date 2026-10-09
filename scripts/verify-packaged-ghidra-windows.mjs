@@ -73,7 +73,7 @@ if (packageRootArgument === undefined) {
       ],
       { timeout: 120_000, maxBuffer: 8 * 1024 * 1024 },
     );
-    packageRoot = join(prefix, "node_modules", "rea-agents");
+    packageRoot = join(prefix, "node_modules", "@memjar/revo");
   } catch (cause) {
     await rm(workspace, { recursive: true, force: true });
     throw cause;
@@ -128,7 +128,7 @@ const environment = {
     process.env.ComSpec ??
     join(process.env.SystemRoot ?? "C:\\Windows", "System32", "cmd.exe")
   ).replaceAll("\\", "/"),
-  REA_LOG_LEVEL: "error",
+  REVO_LOG_LEVEL: "error",
   GHIDRA_HEADLESS_MAXMEM: "512m",
   NODE_OPTIONS: "--max-old-space-size=512",
   TEMP: runtimeParent.replaceAll("\\", "/"),

@@ -183,8 +183,8 @@ const selectedSkillCheck = (
     ok: state === "aligned",
     classification: state === "aligned" ? "healthy" : "config_drift",
     ...(state === "aligned"
-      ? { detail: "Installed REA skill identity is aligned." }
-      : { remediation: "Run rea setup to update the installed REA skill." }),
+      ? { detail: "Installed Revo skill identity is aligned." }
+      : { remediation: "Run rea setup to update the installed Revo skill." }),
   };
 
 const doctorProviderCheckName = (providerId: string, name: string): boolean =>

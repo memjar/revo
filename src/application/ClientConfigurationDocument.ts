@@ -831,8 +831,8 @@ const disabledServerListLines = (
 };
 
 /**
- * Replace REA's TOML server tables and assignments. Comments that introduce a
- * following table stay. Codex also retains comments around REA's own table.
+ * Replace Revo's TOML server tables and assignments. Comments that introduce a
+ * following table stay. Codex also retains comments around Revo's own table.
  * Text inside strings is not treated as a header. Only Grok Build reads the
  * root `disabled_mcp_servers` list that registration also edits.
  */
@@ -1039,7 +1039,7 @@ export const grokServerListedDisabled = (
 
 /**
  * OMP's user `disabledServers` denylist hides a server by name regardless of
- * its entry, so a listed REA registration is not loaded.
+ * its entry, so a listed Revo registration is not loaded.
  */
 export const OMP_DISABLED_SERVERS_KEY = "disabledServers";
 
@@ -1078,7 +1078,7 @@ export const clientServerListedDisabled = (
   (parsed.dialect === "omp" &&
     ompServerListedDisabled(parsed.document, serverKey));
 
-/** Keep an existing Grok document intact aside from the REA server tables. */
+/** Keep an existing Grok document intact aside from the Revo server tables. */
 const serializeGrokConfiguration = (
   document: Record<string, unknown>,
   originalText: string | undefined,
@@ -1105,7 +1105,7 @@ const withoutEmptyServerTable = (
 };
 
 /**
- * Keep an existing Codex document intact aside from the REA server tables.
+ * Keep an existing Codex document intact aside from the Revo server tables.
  * An edit that would change any other parsed value falls back to a full
  * rewrite, which keeps every value but not comments or spelling.
  */
@@ -1309,7 +1309,7 @@ export const clientRegistrationEntry = (
   command: readonly string[],
   environment: Readonly<Record<string, string>>,
 ): Record<string, unknown> => {
-  const [executable = "rea", ...args] = command;
+  const [executable = "revo", ...args] = command;
   switch (format) {
     case "opencode":
       return {

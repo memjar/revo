@@ -219,12 +219,12 @@ describe("setup workflow lifecycle and provider planning", () => {
       },
       {
         actionId: "install_skill",
-        label: "REA reverse-engineering skill",
+        label: "Revo reverse-engineering skill",
         state: "started",
       },
       {
         actionId: "install_skill",
-        label: "REA reverse-engineering skill",
+        label: "Revo reverse-engineering skill",
         state: "completed",
       },
     ]);

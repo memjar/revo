@@ -61,7 +61,7 @@ export class WindowsOwnedProcess extends EventEmitter {
     this.#authority = requireWindowsNativeAuthority();
     if (protocolStdin && this.#authority.inspection.protocolStdin !== true)
       throw new Error(
-        "The bundled Windows native artifact does not support owned protocol stdin; use a matching current Windows x64 REA package.",
+        "The bundled Windows native artifact does not support owned protocol stdin; use a matching current Windows x64 Revo package.",
       );
     const entries = Object.entries(environment)
       .filter((entry): entry is [string, string] => entry[1] !== undefined)

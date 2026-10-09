@@ -40,7 +40,7 @@ const environmentSchema = z.object({
   HOPPER_TARGET_PATH: z.string().min(1).optional(),
   HOPPER_TARGET_KIND: z.enum(["executable", "database"]).default("executable"),
   HOPPER_LOADER_ARGS_JSON: z.string().optional(),
-  REA_LOG_LEVEL: z
+  REVO_LOG_LEVEL: z
     .enum(["trace", "debug", "info", "warn", "error", "fatal", "silent"])
     .default("info"),
   REA_REFERENCE_SECRET_PATTERNS_JSON: z.string().default("[]"),
@@ -59,7 +59,7 @@ export const parseEnvironment = (
       constraint: issue.message,
     }));
     return err(
-      new ConfigurationError("Invalid REA environment configuration", {
+      new ConfigurationError("Invalid Revo environment configuration", {
         cause: parsed.error,
         settings,
       }),

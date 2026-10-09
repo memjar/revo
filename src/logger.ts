@@ -8,7 +8,7 @@ const logLevelSchema = z
   .enum(["trace", "debug", "info", "warn", "error", "fatal", "silent"])
   .default("info");
 
-/** Parse the optional REA_LOG_LEVEL environment variable. */
+/** Parse the optional REVO_LOG_LEVEL environment variable. */
 export const parseLogLevel = (value: unknown): LogLevel =>
   logLevelSchema.parse(value);
 
@@ -17,7 +17,7 @@ export const createLogger = (mode: "mcp" | "cli", level: LogLevel): Logger =>
   pino(
     {
       level,
-      base: { application: "rea", mode },
+      base: { application: "revo", mode },
     },
     pino.destination({ dest: 2, sync: false }),
   );

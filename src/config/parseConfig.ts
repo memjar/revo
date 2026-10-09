@@ -70,7 +70,7 @@ export const parseConfig = (
     hopperTargetPath: env.HOPPER_TARGET_PATH,
     hopperTargetKind: env.HOPPER_TARGET_KIND,
     hopperLoaderArgs: loaderArgs.value,
-    logLevel: env.REA_LOG_LEVEL,
+    logLevel: env.REVO_LOG_LEVEL,
     referenceSourcePolicy: { secretPatterns: secretPatterns.value },
   });
 };

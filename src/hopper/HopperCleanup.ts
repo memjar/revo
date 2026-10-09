@@ -73,7 +73,7 @@ export const cleanupHopperSession = async (
     0,
     input.retainDocument &&
       input.resources.launch?.preparedImagePath === undefined
-      ? "detaching REA from the Hopper document"
+      ? "detaching Revo from the Hopper document"
       : "requesting Hopper document shutdown",
   );
   await requestShutdown(input, state);

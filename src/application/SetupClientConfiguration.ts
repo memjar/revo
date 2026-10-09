@@ -80,7 +80,7 @@ const configureClientDocument = async (
     !(await preserveConfigBackup(transactionPath, backupPath))
   )
     return { status: "failed", reason: "backup" };
-  // A native OpenCode V2 entry replaces REA's legacy V1 entry, which would
+  // A native OpenCode V2 entry replaces Revo's legacy V1 entry, which would
   // otherwise conflict with it.
   const legacyPath = legacyClientServerPath(
     parsed,
@@ -252,7 +252,7 @@ const restoreConfig = async (
   }
 };
 
-/** Whether REA's entry matches, no legacy entry remains, and no client disable list suppresses it. */
+/** Whether Revo's entry matches, no legacy entry remains, and no client disable list suppresses it. */
 const registrationCurrent = (
   parsed: ClientConfigurationDocument,
   desired: unknown,

@@ -84,7 +84,7 @@ describe("runtime target configuration", () => {
   it("rejects invalid target kinds with actionable environment diagnostics", () => {
     const result = parseConfig({ HOPPER_TARGET_KIND: "archive" });
     if (result.ok) throw new Error("Expected invalid target kind");
-    expect(result.error.message).toContain("Invalid REA environment");
+    expect(result.error.message).toContain("Invalid Revo environment");
   });
 
   it("parses database kind and loader arguments", () => {
@@ -142,9 +142,9 @@ describe("runtime collection configuration", () => {
   );
 
   it("parses supported log levels and rejects unknown levels", () => {
-    const configured = parseConfig({ REA_LOG_LEVEL: "debug" });
+    const configured = parseConfig({ REVO_LOG_LEVEL: "debug" });
     expect(configured.ok && configured.value.logLevel).toBe("debug");
-    expect(parseConfig({ REA_LOG_LEVEL: "verbose" }).ok).toBe(false);
+    expect(parseConfig({ REVO_LOG_LEVEL: "verbose" }).ok).toBe(false);
   });
 
   it("parses reference source secret patterns", () => {
@@ -213,7 +213,7 @@ describe("configuration failure diagnostics", () => {
       const constraint = `${setting} must be absolute`;
       expect(projectAnalysisError(result.error)).toMatchObject({
         code: "configuration_invalid",
-        message: `REA configuration is invalid: ${constraint}.`,
+        message: `Revo configuration is invalid: ${constraint}.`,
         remediation: { action: expect.stringContaining(`Correct ${setting} `) },
         details: { settings: [{ setting, constraint }] },
       });

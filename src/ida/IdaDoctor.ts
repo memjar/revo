@@ -58,7 +58,7 @@ const inspectPrivateWorkspace = (): DoctorProviderCheck => {
       : privacy.reason,
     remediation: privacy.available
       ? null
-      : "Use the matching Windows x64 REA package and a writable local NTFS temporary directory.",
+      : "Use the matching Windows x64 Revo package and a writable local NTFS temporary directory.",
     classification: "unsupported_host",
   };
 };

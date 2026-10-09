@@ -18,7 +18,7 @@ const capabilitySchema = z.enum(GHIDRA_SESSION_CAPABILITIES);
 
 const sessionInfoSchema = z
   .object({
-    name: z.literal("REA Ghidra bridge"),
+    name: z.literal("Revo Ghidra bridge"),
     run_id: z.string().uuid(),
     profile_digest: z.string().regex(/^[a-f0-9]{64}$/u),
     provider: z

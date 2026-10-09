@@ -84,7 +84,7 @@ describe("CLI command outcome classification", () => {
   it("returns nonzero for the UpdateResult failure variant", async () => {
     const installation = {
       prefix: "/fixture",
-      packageRoot: "/fixture/lib/node_modules/rea-agents",
+      packageRoot: "/fixture/lib/node_modules/@memjar/revo",
     };
     const updateHost: UpdateHost = {
       installation: () => Promise.resolve(installation),

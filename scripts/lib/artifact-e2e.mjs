@@ -7,7 +7,7 @@ import { StdioClientTransport } from "@modelcontextprotocol/client/stdio";
 
 const environment = () => ({
   PATH: process.env.PATH ?? "/usr/bin:/bin",
-  REA_LOG_LEVEL: "silent",
+  REVO_LOG_LEVEL: "silent",
   REA_ANALYSIS_PROVIDER: "auto",
   // Artifact workflows have no deep-provider prerequisite or GUI authority.
   HOPPER_LAUNCHER_PATH: "/rea-unconfigured-deep-provider/hopper",

@@ -275,10 +275,10 @@ const ambiguityLimitation = (
   basis: MethodItem["match"]["basis"],
 ): string =>
   basis === "exact-signature"
-    ? `Multiple managed ${members} share the same declared type, name, and raw signature; REA did not guess a token remap.`
+    ? `Multiple managed ${members} share the same declared type, name, and raw signature; Revo did not guess a token remap.`
     : members === "methods"
-      ? "Multiple managed methods share the same non-name identity key; REA did not guess a token remap."
-      : "Multiple managed fields share the same signature; REA did not guess a token remap from names.";
+      ? "Multiple managed methods share the same non-name identity key; Revo did not guess a token remap."
+      : "Multiple managed fields share the same signature; Revo did not guess a token remap from names.";
 
 export const buildMethodItems = (
   matches: ManagedMethodMatches,

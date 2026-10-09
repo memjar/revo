@@ -91,7 +91,7 @@ export const observeNativeCalls = async (
 const isAbortError = (cause: unknown): boolean =>
   cause instanceof Error && cause.name === "AbortError";
 
-/** Join the request, the tracer's run and REA's own checks into the result contract. */
+/** Join the request, the tracer's run and Revo's own checks into the result contract. */
 export const projectNativeCalls = (
   target: Pick<BinaryTarget, "path" | "sha256"> & {
     readonly architecture: string;
@@ -218,7 +218,7 @@ export const projectNativeCalls = (
       ...(run.terminated && trace.terminated
         ? []
         : [
-            `REA could not confirm that process ${run.pid} exited; check for it before relying on host state.`,
+            `Revo could not confirm that process ${run.pid} exited; check for it before relying on host state.`,
           ]),
     ],
   });

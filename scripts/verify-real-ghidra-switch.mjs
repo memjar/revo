@@ -191,7 +191,7 @@ async function verifyTarget(path, sha256, fixtures, variant) {
   const env = {
     PATH: process.env.PATH ?? "/usr/bin:/bin",
     TMPDIR: runtime,
-    REA_LOG_LEVEL: "silent",
+    REVO_LOG_LEVEL: "silent",
     REA_ANALYSIS_PROVIDER: "ghidra",
     REA_PROCESS_RUN_ID: run.run_id,
     GHIDRA_INSTALL_DIR: process.env.GHIDRA_INSTALL_DIR,

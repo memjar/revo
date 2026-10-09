@@ -1,16 +1,16 @@
 {
-  "name": "rea-agents",
-  "mcpName": "io.github.morluto/rea",
-  "version": "6.2.0",
-  "description": "Reverse engineer anything from your terminal or agent with one CLI and MCP server.",
+  "name": "@memjar/revo",
+  "mcpName": "io.github.memjar/revo",
+  "version": "0.1.0",
+  "description": "Sovereign reverse engineering toolkit — CLI, MCP server, and HTTP API.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/morluto/rea.git"
+    "url": "git+https://github.com/memjar/revo.git"
   },
-  "homepage": "https://github.com/morluto/rea#readme",
+  "homepage": "https://github.com/memjar/revo#readme",
   "bugs": {
-    "url": "https://github.com/morluto/rea/issues"
+    "url": "https://github.com/memjar/revo/issues"
   },
   "keywords": [
     "reverse-engineering",
@@ -31,8 +31,7 @@
   },
   "type": "module",
   "bin": {
-    "rea": "scripts/rea.mjs",
-    "rea-agents": "scripts/rea.mjs"
+    "revo": "scripts/revo.mjs"
   },
   "engines": {
     "node": "^22.19.0 || ^24.11.0 || >=26.0.0"
@@ -52,7 +51,7 @@
     "bridge/ghidra/ReaGhidraPrepareCom.java",
     "bridge/android/ReaJadxBridge.java",
     "bridge/mitmproxy/capture.py",
-    "scripts/rea.mjs",
+    "scripts/revo.mjs",
     "scripts/electron-active-hook.cjs",
     "scripts/electron-active-hook-boundaries.cjs",
     "scripts/hopper-demo-x11.py",
@@ -107,7 +106,8 @@
     "knip": "knip",
     "jscpd": "jscpd src/ tests/",
     "scan:todos": "node scripts/scan-todos.mjs",
-    "start": "node scripts/rea.mjs mcp",
+    "start": "node scripts/revo.mjs mcp",
+    "serve": "node scripts/revo.mjs serve",
     "test": "npm run test:with-build",
     "test:with-build": "npm run test:prepare && vitest run",
     "test:run": "vitest run",

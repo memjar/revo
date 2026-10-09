@@ -124,7 +124,7 @@ const waitForCompilation = async (
   });
 };
 
-/** Compile and retain the narrow Darwin sysctl reader for this REA process. */
+/** Compile and retain the narrow Darwin sysctl reader for this Revo process. */
 export const createDarwinProcessRunTokenReader = (
   options: { readonly xcrun?: string } = {},
 ) => {
@@ -164,7 +164,7 @@ export const createDarwinProcessRunTokenReader = (
         ...process.env,
         TMPDIR: compilerTemporary,
       };
-      // Use Swift's reusable default cache for REA's internal helper compilation.
+      // Use Swift's reusable default cache for Revo's internal helper compilation.
       delete compilerEnvironment.CLANG_MODULE_CACHE_PATH;
       try {
         await execFileOutput(

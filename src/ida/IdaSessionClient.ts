@@ -384,7 +384,7 @@ export class IdaSessionClient implements AnalysisClient {
       identity !== this.#initialIdentity
     )
       throw new AnalysisProtocolError(
-        "The attached IDA target or image base changed during the REA session; reopen the target.",
+        "The attached IDA target or image base changed during the Revo session; reopen the target.",
       );
     this.#initialIdentity = identity;
     return this.#metadata;

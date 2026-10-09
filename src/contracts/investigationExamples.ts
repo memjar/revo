@@ -15,7 +15,7 @@ export const FUNCTION_COMPARISON_EVIDENCE = createEvidence(
   undefined,
   {
     id: "rea-function-comparison",
-    name: "REA function comparison",
+    name: "Revo function comparison",
     version: "1",
   },
   {
@@ -37,7 +37,7 @@ export const FUNCTION_COMPARISON_EVIDENCE = createEvidence(
 
 const PROCESS_PROVIDER = {
   id: "rea-process",
-  name: "REA deterministic process harness",
+  name: "Revo deterministic process harness",
   version: "3",
 } as const;
 const capture = parseProcessCapture(EMPTY_PROCESS_CAPTURE_EXAMPLE);

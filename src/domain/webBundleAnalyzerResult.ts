@@ -191,7 +191,7 @@ const buildCompleteness = (
 });
 
 const bundleLimitations = (): WebBundleAnalysis["limitations"] => [
-  "Static bundle findings are observations or bounded inferences; REA does not execute captured JavaScript.",
+  "Static bundle findings are observations or bounded inferences; Revo does not execute captured JavaScript.",
   "String-built routes and endpoints, encrypted configuration, and server-side behavior may remain unknown.",
-  "Page-declared WebMCP metadata is untrusted and is never registered or invoked as an REA tool.",
+  "Page-declared WebMCP metadata is untrusted and is never registered or invoked as an Revo tool.",
 ];

@@ -11,7 +11,7 @@ export const HOPPER_PROVIDER_IDENTITY: ProviderIdentity = Object.freeze({
   version: null,
 });
 
-/** Analyst operations implemented by REA's private Hopper bridge. */
+/** Analyst operations implemented by Revo's private Hopper bridge. */
 export const HOPPER_OPERATIONS = Object.freeze([
   "address_name",
   "comment",

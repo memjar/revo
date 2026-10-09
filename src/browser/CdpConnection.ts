@@ -150,7 +150,7 @@ export class CdpConnection {
     });
   }
 
-  /** Close only REA's socket; never close the browser or selected page. */
+  /** Close only Revo's socket; never close the browser or selected page. */
   async close(): Promise<void> {
     if (this.#closed) return;
     this.#closed = true;

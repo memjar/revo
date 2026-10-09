@@ -17,7 +17,7 @@ export const parseHopperServerInfo = (
     typeof value === "object" &&
     value !== null &&
     !Array.isArray(value) &&
-    value.name === "REA Hopper bridge" &&
+    value.name === "Revo Hopper bridge" &&
     typeof value.version === "string" &&
     value.run_id === expectedRunId
   )
@@ -25,7 +25,7 @@ export const parseHopperServerInfo = (
   return err(new HopperProtocolError("Hopper bridge health result is invalid"));
 };
 
-/** Require confirmation that the REA bridge detached or its document closed. */
+/** Require confirmation that the Revo bridge detached or its document closed. */
 export const isHopperShutdownAcknowledgement = (value: JsonValue): boolean => {
   if (typeof value !== "object" || value === null || Array.isArray(value))
     return false;

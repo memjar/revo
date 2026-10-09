@@ -51,7 +51,7 @@ const environment = Object.fromEntries(
   Object.entries({
     ...process.env,
     REA_ANALYSIS_PROVIDER: "ida",
-    REA_LOG_LEVEL: "error",
+    REVO_LOG_LEVEL: "error",
   }).filter(([, value]) => value !== undefined),
 );
 const report = {

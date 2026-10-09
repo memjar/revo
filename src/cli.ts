@@ -48,9 +48,9 @@ export const createCli = (
   const analysis = createDirectAnalysis(environment);
   const logger = createLogger(
     "cli",
-    environment.REA_LOG_LEVEL === undefined
+    environment.REVO_LOG_LEVEL === undefined
       ? "silent"
-      : parseLogLevel(environment.REA_LOG_LEVEL),
+      : parseLogLevel(environment.REVO_LOG_LEVEL),
   );
   const cli = Cli.create(PRODUCT_IDENTITY.cliBinary, {
     version: PRODUCT_IDENTITY.packageVersion,

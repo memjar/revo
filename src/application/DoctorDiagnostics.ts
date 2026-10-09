@@ -113,7 +113,7 @@ const hostCheck = async (host: DoctorHost): Promise<DoctorCheck> => {
       : `${linuxDistribution.id} ${linuxDistribution.versionId ?? "unknown"}`);
   return check("host", supported, detail, {
     remediation:
-      "REA supports macOS 12+, Ubuntu 24.04+, Fedora 41+, Nobara 44+, 64-bit Arch Linux, CachyOS, and the experimental Windows x64 Ghidra P0 boundary.",
+      "Revo supports macOS 12+, Ubuntu 24.04+, Fedora 41+, Nobara 44+, 64-bit Arch Linux, CachyOS, and the experimental Windows x64 Ghidra P0 boundary.",
     classification: "unsupported_host",
   });
 };
@@ -259,8 +259,8 @@ const providerDoctorChecks = (
 
 const unsupportedHopperRemediation = (configured: boolean): string =>
   configured
-    ? "Unset or update HOPPER_LAUNCHER_PATH, install the Hopper build supported by this REA release, or update REA."
-    : "Install the Hopper build supported by this REA release, or update REA for a newer Hopper build.";
+    ? "Unset or update HOPPER_LAUNCHER_PATH, install the Hopper build supported by this Revo release, or update Revo."
+    : "Install the Hopper build supported by this Revo release, or update Revo for a newer Hopper build.";
 
 const parseMajor = (version: string | undefined): number =>
   Number.parseInt(version?.split(".")[0] ?? "0", 10);

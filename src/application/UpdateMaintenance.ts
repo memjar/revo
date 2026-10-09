@@ -15,7 +15,7 @@ import { supportedClients } from "./SupportedClients.js";
 import type { SetupAction } from "./SetupTypes.js";
 import type { Result } from "../domain/result.js";
 
-/** Existing REA integrations selected for maintenance, without discovering new targets. */
+/** Existing Revo integrations selected for maintenance, without discovering new targets. */
 export interface MaintenanceScope {
   readonly clients: readonly string[];
   readonly skill: boolean;
@@ -49,7 +49,7 @@ const setupPlanSchema = z.object({
   ),
 });
 
-/** Discover owned registrations and an existing REA skill without writes. */
+/** Discover owned registrations and an existing Revo skill without writes. */
 export const existingMaintenanceScope = async (
   home: string,
   entryPoint: string,
@@ -103,7 +103,7 @@ export const existingMaintenanceScope = async (
   return { clients, skill };
 };
 
-/** Ask the verified new executable to plan only existing REA integrations. */
+/** Ask the verified new executable to plan only existing Revo integrations. */
 export const planIntegrationMaintenance = async (
   home: string,
   entryPoint: string,
@@ -140,7 +140,7 @@ export const planIntegrationMaintenance = async (
       return {
         status: "unavailable",
         remediation:
-          "The updated setup plan included an integration outside the existing REA maintenance scope.",
+          "The updated setup plan included an integration outside the existing Revo maintenance scope.",
       };
     return {
       status: "planned",

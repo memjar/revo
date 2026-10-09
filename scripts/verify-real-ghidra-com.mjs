@@ -65,7 +65,7 @@ const sha256 = digest(fixture.bytes);
 const env = {
   PATH: process.env.PATH ?? "/usr/bin:/bin",
   TMPDIR: runtime,
-  REA_LOG_LEVEL: "silent",
+  REVO_LOG_LEVEL: "silent",
   REA_ANALYSIS_PROVIDER: "ghidra",
   REA_PROCESS_RUN_ID: run.run_id,
   HOPPER_LAUNCHER_PATH: "/rea-unconfigured-deep-provider/hopper",

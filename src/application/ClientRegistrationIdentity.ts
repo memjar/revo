@@ -25,7 +25,7 @@ const unwrapNpxCommand = (command: readonly string[]): readonly string[] => {
   return [];
 };
 
-/** Check that one parsed command points to REA's MCP entry point. */
+/** Check that one parsed command points to Revo's MCP entry point. */
 export const isOwnedClientRegistrationCommand = (
   command: readonly string[],
   currentCommandPath: string = resolve(process.argv[1] ?? "unknown"),

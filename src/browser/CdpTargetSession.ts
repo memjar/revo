@@ -43,7 +43,7 @@ export const openCdpTargetSession = async (
   }
 };
 
-/** Disable enabled domains, detach browser sessions, and close REA's socket. */
+/** Disable enabled domains, detach browser sessions, and close Revo's socket. */
 export const closeCdpTargetSession = async (
   targetSession: CdpTargetSession,
   enabledDomains: readonly string[],
@@ -78,7 +78,7 @@ export const closeCdpTargetSession = async (
         signal,
       );
     } catch (cause: unknown) {
-      // best-effort cleanup: closing REA's socket is the final cleanup boundary.
+      // best-effort cleanup: closing Revo's socket is the final cleanup boundary.
       void cause;
     }
   await connection.close();

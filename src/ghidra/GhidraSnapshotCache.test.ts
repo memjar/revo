@@ -51,7 +51,7 @@ const fixture = (version = "12.1.4") => {
     (options) => ({
       start: async () =>
         ok({
-          name: "REA Ghidra bridge",
+          name: "Revo Ghidra bridge",
           run_id: "11111111-1111-4111-8111-111111111111",
           profile_digest: options.profileDigest,
           provider: { id: "ghidra", version },
@@ -143,7 +143,7 @@ describe("Ghidra snapshot cache", () => {
         ok: true,
         value: {
           limitations: expect.arrayContaining([
-            expect.stringContaining("local REA analysis snapshot"),
+            expect.stringContaining("local Revo analysis snapshot"),
           ]),
         },
       });

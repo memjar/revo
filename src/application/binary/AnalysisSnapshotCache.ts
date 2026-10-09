@@ -283,7 +283,7 @@ export class AnalysisSnapshotCache {
       analysisProfile: structuredClone(profile),
       limitations: [
         ...cached.execution.limitations,
-        "Loaded from a local REA analysis snapshot; this call did not re-run the provider.",
+        "Loaded from a local Revo analysis snapshot; this call did not re-run the provider.",
       ],
       locations: cached.execution.locations,
       subject:

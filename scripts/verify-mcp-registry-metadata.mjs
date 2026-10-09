@@ -13,7 +13,7 @@ const packageJson = await readJson("package.json");
 const serverJson = await readJson("server.json");
 const registryPackage = serverJson.packages?.[0];
 
-if (packageJson.name !== "rea-agents") fail("unexpected npm package name");
+if (packageJson.name !== "@memjar/revo") fail("unexpected npm package name");
 if (typeof packageJson.version !== "string")
   fail("package.json is missing a string version");
 if (packageJson.mcpName !== "io.github.morluto/rea")

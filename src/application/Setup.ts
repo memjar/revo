@@ -260,7 +260,7 @@ export const runSetup = async (
     ))
   )
     return fail(
-      "REA analysis skill could not be installed or verified. Check permissions for its planned skill directories, then rerun setup.",
+      "Revo analysis skill could not be installed or verified. Check permissions for its planned skill directories, then rerun setup.",
     );
   const doctor = summarizeDoctor(await host.doctor(readinessScope));
   const remediation = combineRemediation(
@@ -350,7 +350,7 @@ const installSkillAction = async (
   appliedActions: string[],
   skillClientIds: readonly string[],
 ): Promise<boolean> => {
-  const label = "REA reverse-engineering skill";
+  const label = "Revo reverse-engineering skill";
   emitProgress(options, {
     actionId: "install_skill",
     label,

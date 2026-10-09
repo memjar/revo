@@ -85,12 +85,12 @@ export const loadWindowsNativeAuthority = (
   if (host.platform !== "win32" || host.architecture !== "x64")
     return {
       available: false,
-      reason: "REA Windows native controls require a Windows x64 host.",
+      reason: "Revo Windows native controls require a Windows x64 host.",
     };
   try {
     const manifest = windowsNativeManifestSchema.parse(host.readManifest());
     if (manifest.packageVersion !== host.packageVersion)
-      throw new Error("Windows native artifact belongs to another REA version");
+      throw new Error("Windows native artifact belongs to another Revo version");
     const nodeApiVersion = Number(host.nodeApiVersion);
     if (!Number.isSafeInteger(nodeApiVersion) || nodeApiVersion < 8)
       throw new Error("Windows native artifact requires Node-API 8 or newer");
@@ -109,7 +109,7 @@ export const loadWindowsNativeAuthority = (
   } catch (cause: unknown) {
     return {
       available: false,
-      reason: `REA Windows native controls are unavailable: ${cause instanceof Error ? cause.message : String(cause)}`,
+      reason: `Revo Windows native controls are unavailable: ${cause instanceof Error ? cause.message : String(cause)}`,
     };
   }
 };

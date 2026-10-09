@@ -135,7 +135,7 @@ describe("executable header completeness", () => {
       "truncated FAT slice: the arm64 slice ends at byte 4160; the file has 4100",
     );
     expect(reason(bytes, 4160)).toBeNull();
-    // Only the slice REA would analyze must be present.
+    // Only the slice Revo would analyze must be present.
     expect(parseExecutableHeader(bytes, "x64", 4100).ok).toBe(true);
   });
 });

@@ -130,7 +130,7 @@ export class WebSourceLocationService {
         },
         {
           id: "rea-web-source-location",
-          name: "REA captured source-map point trace",
+          name: "Revo captured source-map point trace",
           version: "1",
         },
         {

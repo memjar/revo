@@ -94,7 +94,7 @@ const entrypoint =
 const env = {
   PATH: process.env.PATH ?? "/usr/bin:/bin",
   TMPDIR: runtime,
-  REA_LOG_LEVEL: "silent",
+  REVO_LOG_LEVEL: "silent",
   REA_ANALYSIS_PROVIDER: "ghidra",
   GHIDRA_INSTALL_DIR: process.env.GHIDRA_INSTALL_DIR,
   REA_GHIDRA_NATIVEAOT_JAR: process.env.REA_GHIDRA_NATIVEAOT_JAR,

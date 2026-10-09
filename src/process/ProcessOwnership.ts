@@ -10,7 +10,7 @@ import { descendantsOf, liveProcesses } from "./ProcessOwnershipProcessTree.js";
 
 const execFileAsync = promisify(execFile);
 
-/** Identity proof required before REA may signal an owned process group. */
+/** Identity proof required before Revo may signal an owned process group. */
 export interface OwnedProcessGroup {
   readonly runId: string;
   readonly leaderPid: number;

@@ -29,7 +29,7 @@ export const HOPPER_TARGET_LEASE_DIRECTORY = join(
   `rea-hopper-${process.getuid?.() ?? 0}`,
 );
 
-/** Keep two REA processes from opening duplicate Hopper documents for one target/profile. */
+/** Keep two Revo processes from opening duplicate Hopper documents for one target/profile. */
 export const acquireHopperTargetLease = async (input: {
   readonly targetPath: string;
   readonly targetKind: "executable" | "database";
@@ -93,7 +93,7 @@ const acquireLease = async (input: {
     if (typeof recovered !== "string") return recovered;
     throw new HopperStartError({
       userMessage:
-        "REA could not reserve Hopper for this request. Close competing REA sessions and retry.",
+        "Revo could not reserve Hopper for this request. Close competing Revo sessions and retry.",
     });
   } finally {
     try {
@@ -103,7 +103,7 @@ const acquireLease = async (input: {
         await recovered.lease.release();
       throw new HopperStartError({
         cause,
-        userMessage: `REA could not remove its Hopper recovery directory at ${JSON.stringify(recoveryPath)}. Check this directory's write access before retrying.`,
+        userMessage: `Revo could not remove its Hopper recovery directory at ${JSON.stringify(recoveryPath)}. Check this directory's write access before retrying.`,
       });
     }
   }
@@ -120,8 +120,8 @@ const reserveRecovery = async (recoveryPath: string): Promise<void> => {
     throw new HopperStartError({
       cause,
       userMessage: busy
-        ? `REA could not reserve Hopper lease recovery at ${JSON.stringify(recoveryPath)}; the existing socket was left unchanged. Retry after concurrent startup finishes. If recovery was interrupted, stop REA sessions and remove this recovery directory before retrying.`
-        : `REA could not create its Hopper recovery directory at ${JSON.stringify(recoveryPath)}; the existing socket was left unchanged. Check the parent directory's write access before retrying.`,
+        ? `Revo could not reserve Hopper lease recovery at ${JSON.stringify(recoveryPath)}; the existing socket was left unchanged. Retry after concurrent startup finishes. If recovery was interrupted, stop Revo sessions and remove this recovery directory before retrying.`
+        : `Revo could not create its Hopper recovery directory at ${JSON.stringify(recoveryPath)}; the existing socket was left unchanged. Check the parent directory's write access before retrying.`,
     });
   }
 };
@@ -167,7 +167,7 @@ const ensureLeaseDirectory = async (directory: string): Promise<void> => {
     throw new HopperStartError({
       cause,
       userMessage:
-        "REA could not create or inspect its private Hopper lease directory.",
+        "Revo could not create or inspect its private Hopper lease directory.",
     });
   }
   if (
@@ -177,7 +177,7 @@ const ensureLeaseDirectory = async (directory: string): Promise<void> => {
   )
     throw new HopperStartError({
       userMessage:
-        "REA's Hopper lease directory is not a private directory owned by this user.",
+        "Revo's Hopper lease directory is not a private directory owned by this user.",
     });
   if ((directoryStat.mode & 0o077) !== 0) await chmod(directory, 0o700);
 };
@@ -217,7 +217,7 @@ const readOwner = (
       rejectOwner(
         new HopperStartError({
           cause,
-          userMessage: `REA could not verify the existing Hopper lease (${reason}); it was left unchanged. Retry when the owning REA session is responsive.`,
+          userMessage: `Revo could not verify the existing Hopper lease (${reason}); it was left unchanged. Retry when the owning Revo session is responsive.`,
         }),
       );
     };

@@ -59,7 +59,7 @@ export async function verifyBrowserNetworkEvidence(
     });
     const env = {
       ...process.env,
-      REA_LOG_LEVEL: "silent",
+      REVO_LOG_LEVEL: "silent",
       REA_NETWORK_FIXTURE_SECRET: networkFixtureSecret,
       HOPPER_LAUNCHER_PATH: "/rea-unconfigured-provider/hopper",
     };

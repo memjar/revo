@@ -18,7 +18,7 @@ class FakeUpdateHost implements UpdateHost {
   release: Result<string, ReleaseLookupFailure> = ok("3.3.0");
   installationResult: NpmInstallation | undefined = {
     prefix: "/fixture",
-    packageRoot: "/fixture/lib/node_modules/rea-agents",
+    packageRoot: "/fixture/lib/node_modules/@memjar/revo",
   };
   installResult: Result<void, string> = ok(undefined);
   verified: Result<string, string> = ok("3.3.0");
@@ -59,7 +59,7 @@ class FakeUpdateHost implements UpdateHost {
   };
 }
 
-describe("REA update", () => {
+describe("Revo update", () => {
   it("identifies an already-current installation without mutation", async () => {
     const host = new FakeUpdateHost();
     expect(await runUpdate("3.3.0", host)).toEqual({
@@ -97,7 +97,7 @@ describe("REA update", () => {
         "--ignore-scripts",
         "--prefix",
         "/fixture",
-        "rea-agents@3.3.0",
+        "@memjar/revo@3.3.0",
       ],
     });
     expect(host.installedVersions).toEqual(["3.3.0"]);
@@ -275,12 +275,12 @@ describe("update failures and version boundaries", () => {
 
   it("reports actual npm failures and skips verification", async () => {
     const host = new FakeUpdateHost();
-    host.installResult = err("EACCES /fixture/lib/node_modules/rea-agents");
+    host.installResult = err("EACCES /fixture/lib/node_modules/@memjar/revo");
     const result = await runUpdate("3.2.1", host);
     expect(result).toMatchObject({ status: "failed", reason: "install" });
     expect(result).toHaveProperty(
       "remediation",
-      expect.stringContaining("EACCES /fixture/lib/node_modules/rea-agents"),
+      expect.stringContaining("EACCES /fixture/lib/node_modules/@memjar/revo"),
     );
     expect(host.verifiedInstallation).toBeUndefined();
   });
@@ -294,14 +294,14 @@ describe("npm installation ownership", () => {
   });
 
   it("identifies the global prefix and package root", async () => {
-    const packageRoot = "/usr/local/lib/node_modules/rea-agents";
+    const packageRoot = "/usr/local/lib/node_modules/@memjar/revo";
     await expect(
       detectNpmInstallation(packageRoot, host("/usr/local/lib/node_modules")),
     ).resolves.toEqual({ prefix: "/usr/local", packageRoot });
   });
 
   it("retains the curl installer's custom Unix prefix", async () => {
-    const packageRoot = "/home/user/.local/lib/node_modules/rea-agents";
+    const packageRoot = "/home/user/.local/lib/node_modules/@memjar/revo";
     await expect(
       detectNpmInstallation(packageRoot, host("/usr/local/lib/node_modules")),
     ).resolves.toEqual({ prefix: "/home/user/.local", packageRoot });
@@ -309,8 +309,8 @@ describe("npm installation ownership", () => {
 
   it.each([
     "/work/rea",
-    "/work/node_modules/rea-agents",
-    "/cache/_npx/abc/node_modules/rea-agents",
+    "/work/node_modules/@memjar/revo",
+    "/cache/_npx/abc/node_modules/@memjar/revo",
   ])("rejects unrelated invocation %s", async (packageRoot) => {
     await expect(
       detectNpmInstallation(packageRoot, host("/usr/local/lib/node_modules")),
@@ -324,7 +324,7 @@ describe("npm installation ownership", () => {
     };
     await expect(
       detectNpmInstallation(
-        "/home/.local/lib/node_modules/rea-agents",
+        "/home/.local/lib/node_modules/@memjar/revo",
         failing,
       ),
     ).resolves.toBeUndefined();

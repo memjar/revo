@@ -54,7 +54,7 @@ export const inspectCdpElectronPage = async (
     executionContextFrames: new Map(),
     limitations: [
       "Local file paths exposed by the selected CDP target are retained in the observation.",
-      "REA does not evaluate renderer JavaScript, invoke Electron APIs, navigate, click, or close the page.",
+      "Revo does not evaluate renderer JavaScript, invoke Electron APIs, navigate, click, or close the page.",
       "Select include_script_sources to retain script contents.",
     ],
     mainFrameId: undefined,

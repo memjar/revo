@@ -47,7 +47,7 @@ export const projectGhidraDoctorInspection = (
                 ? windowsNativeAuthorityUnavailableReason(inspection.platform)
                 : "Verified Windows native Job Object, private DACL, and reparse-safe handle controls; local NTFS only.",
               remediation: windowsAuthorityUnavailable
-                ? "Use the matching Windows x64 REA package with its bundled native addon and a writable local NTFS temporary directory. The native failure above identifies the failed constraint; Ghidra installation or registration changes cannot enable a missing native backend."
+                ? "Use the matching Windows x64 Revo package with its bundled native addon and a writable local NTFS temporary directory. The native failure above identifies the failed constraint; Ghidra installation or registration changes cannot enable a missing native backend."
                 : null,
               classification: "unsupported_host" as const,
             },

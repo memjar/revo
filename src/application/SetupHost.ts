@@ -71,7 +71,7 @@ export const hostRemediation = async (
     return `Install ${SUPPORTED_NODE_VERSION_PROSE} and rerun setup.`;
   if (!installHopper) return undefined;
   if (host.platform !== "darwin" && host.platform !== "linux")
-    return "REA supports Hopper on macOS and selected 64-bit Linux distributions.";
+    return "Revo supports Hopper on macOS and selected 64-bit Linux distributions.";
   if (host.platform === "darwin") {
     const version = await host.macosVersion();
     return version === undefined || major(version) < 12

@@ -5,7 +5,7 @@ import {
 } from "./KnownAnswerEvaluation.js";
 import { compareUnicodeCodePoints } from "../domain/unicodeCodePointOrder.js";
 
-/** One REA MCP invocation observed in a Codex JSONL transcript. */
+/** One Revo MCP invocation observed in a Codex JSONL transcript. */
 interface CodexMcpCall {
   readonly id: string | null;
   readonly server: string | null;

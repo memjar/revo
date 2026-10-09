@@ -108,7 +108,7 @@ const registerDoctorCommand = (
   environment: Readonly<NodeJS.ProcessEnv>,
 ): void => {
   cli.command(CLI_COMMANDS.doctor, {
-    description: "Check whether REA is ready",
+    description: "Check whether Revo is ready",
     options: z.object({
       target: z.string().optional().describe("Optional app path to check"),
       client: z
@@ -122,7 +122,7 @@ const registerDoctorCommand = (
       skill: z
         .boolean()
         .optional()
-        .describe("Require the installed REA skill identity to be aligned"),
+        .describe("Require the installed Revo skill identity to be aligned"),
     }),
     run: ({ options }) =>
       logCliCommand(logger, "doctor", () =>
@@ -146,7 +146,7 @@ const registerMaintenanceCommands = (
       purgeData: z
         .boolean()
         .default(false)
-        .describe("Also remove REA caches and state"),
+        .describe("Also remove Revo caches and state"),
     }),
     alias: { purgeData: "purge-data" },
     run: ({ options }) =>
@@ -167,7 +167,7 @@ const registerMaintenanceCommands = (
   });
   cli.command(CLI_COMMANDS.update, {
     description:
-      "Update this REA installation and verify the installed release",
+      "Update this Revo installation and verify the installed release",
     run: ({ formatExplicit }) =>
       logCliCommand(
         logger,

@@ -134,7 +134,7 @@ async function verifyCase(executable, entrypoint, scenario) {
         "--json",
       ],
       {
-        env: { ...process.env, REA_LOG_LEVEL: "silent" },
+        env: { ...process.env, REVO_LOG_LEVEL: "silent" },
         timeout: 45_000,
         maxBuffer: 16 * 1024 * 1024,
       },

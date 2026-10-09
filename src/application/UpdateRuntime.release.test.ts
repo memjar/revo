@@ -11,7 +11,7 @@ import {
 
 const installation = {
   prefix: "/opt/rea",
-  packageRoot: "/opt/rea/lib/node_modules/rea-agents",
+  packageRoot: "/opt/rea/lib/node_modules/@memjar/revo",
 };
 
 describe("npm latest release metadata", () => {

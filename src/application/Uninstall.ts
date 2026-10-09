@@ -115,14 +115,14 @@ export const runUninstall = async (
           item(
             "uninstall",
             "skipped",
-            "No REA registration, skill, or data was removed. Repair each failed configuration, then rerun uninstall.",
+            "No Revo registration, skill, or data was removed. Repair each failed configuration, then rerun uninstall.",
           ),
         ]
       : await removeAll(clients, purgeData, host);
   items.push({
     name: "analysis_engine",
     status: "retained",
-    detail: "Hopper is not owned by REA uninstall.",
+    detail: "Hopper is not owned by Revo uninstall.",
   });
   return {
     status: items.some(({ status }) => status === "failed")
@@ -258,7 +258,7 @@ const removeClient = async (
   const legacyPath = legacyClientServerPath(parsed, name);
   const hasNative = Object.hasOwn(parsed.servers, name);
   if (!hasNative && legacyPath === undefined)
-    return item(client.name, "skipped", "REA registration is absent.");
+    return item(client.name, "skipped", "Revo registration is absent.");
   const removeNative =
     hasNative && isOwnedRegistration(parsed.servers[name], client);
   const removeLegacy =
@@ -357,7 +357,7 @@ const resolveUninstallConfigPath = async (
   );
 };
 
-/** Ownership rule for persistent MCP registrations created by REA setup. */
+/** Ownership rule for persistent MCP registrations created by Revo setup. */
 const isOwnedRegistration = (value: unknown, client: SetupClient): boolean => {
   if (client.format === "opencode") {
     const parsed = z
@@ -385,7 +385,7 @@ const removeManagedPath = async (
       return item(
         name,
         "retained",
-        "REA did not remove this item because its managed path is a symbolic link. Verify the link target before removing it manually.",
+        "Revo did not remove this item because its managed path is a symbolic link. Verify the link target before removing it manually.",
       );
     await fileSystem.remove(path);
     return item(name, "removed", `Removed ${path}.`);
