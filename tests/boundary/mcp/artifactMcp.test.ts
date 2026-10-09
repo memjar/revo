@@ -464,7 +464,7 @@ it("returns full artifact graphs inline and compares changed inventories", async
     const evidence = session.evidenceById(inventoryResult.evidence_id);
     if (evidence === undefined) throw new Error("missing inventory Evidence");
     expect(evidence).toMatchObject({
-      provider: { id: "rea-artifact-graph" },
+      provider: { id: "revo-artifact-graph" },
       subject: { format: "ipa" },
     });
     const inventoryInspection = z

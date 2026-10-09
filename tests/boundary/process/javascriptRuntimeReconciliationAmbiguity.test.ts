@@ -317,7 +317,7 @@ const electronRuntimeEvidence = (
     },
     {
       id: "rea-cdp-electron",
-      name: "REA Electron file-page CDP observation provider",
+      name: "Revo Electron file-page CDP observation provider",
       version: "1",
     },
   );

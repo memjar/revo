@@ -92,7 +92,7 @@ describe("executable dispatcher", () => {
           ),
         });
         expect(result.stderr).toContain(
-          "If this is an installed package, reinstall rea-agents.",
+          "If this is an installed package, reinstall @memjar/revo.",
         );
         expect(result).toMatchObject({
           stderr: expect.not.stringContaining("ERR_MODULE_NOT_FOUND"),

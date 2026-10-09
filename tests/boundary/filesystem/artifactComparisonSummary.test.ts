@@ -17,7 +17,7 @@ const observe = async (path: string) => {
       sha256: inventory.manifest.root_sha256,
       format: inventory.manifest.root_format,
     },
-    { id: "rea-artifact-graph", name: "REA artifact graph", version: "1" },
+    { id: "revo-artifact-graph", name: "Revo artifact graph", version: "1" },
     {
       operation: "inventory_artifact",
       parameters: {},

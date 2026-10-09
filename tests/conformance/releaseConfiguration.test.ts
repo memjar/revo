@@ -60,7 +60,7 @@ describe("release configuration", () => {
           content,
         )?.[0];
 
-      expect(versionBlock).toContain(`rea-agents@${packageJson.version}`);
+      expect(versionBlock).toContain(`@memjar/revo@${packageJson.version}`);
     },
   );
 
@@ -100,7 +100,7 @@ describe("release configuration", () => {
     };
 
     expect(packageJson).toMatchObject({
-      name: "rea-agents",
+      name: "@memjar/revo",
       mcpName: "io.github.morluto/rea",
     });
     expect(serverJson).toMatchObject({

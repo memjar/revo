@@ -17,7 +17,7 @@ const unsupportedHostOutput = {
   error: "Import failed",
   category: "unsupported_host",
   message:
-    "Safe no-follow file opens are unavailable on this host. Import the source tree with REA on Linux (including WSL) or macOS.",
+    "Safe no-follow file opens are unavailable on this host. Import the source tree with Revo on Linux (including WSL) or macOS.",
 };
 
 describe("compiled Windows reference-source import", () => {
