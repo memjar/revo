@@ -6,7 +6,7 @@ import {
   type TestProcesses,
 } from "../process/processFixture.js";
 
-/** Caller-controlled values for one compiled REA CLI invocation. */
+/** Caller-controlled values for one compiled Revo CLI invocation. */
 export interface CliInvocation {
   readonly arguments: readonly string[];
   readonly cwd?: string;
@@ -15,12 +15,12 @@ export interface CliInvocation {
   readonly timeoutMs?: number;
 }
 
-/** Normalized result from the compiled REA CLI. */
+/** Normalized result from the compiled Revo CLI. */
 export interface CliResult extends ProcessResult {
   readonly json: unknown | undefined;
 }
 
-/** Compiled REA CLI driver owned by one test. */
+/** Compiled Revo CLI driver owned by one test. */
 export interface TestCli {
   run(invocation: CliInvocation): Promise<CliResult>;
 }

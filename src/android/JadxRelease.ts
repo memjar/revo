@@ -6,14 +6,14 @@ export const JADX_RELEASE = Object.freeze({
   url: "https://github.com/1013503897/jadx-headless-mcp/releases/download/v0.7.1/jadx-headless-mcp-0.7.1-all.jar",
 });
 
-/** Identity of REA's metadata bridge, distinct from the producing engine. */
+/** Identity of Revo's metadata bridge, distinct from the producing engine. */
 export const JADX_BRIDGE_IDENTITY = Object.freeze({
   name: "rea-jadx-bridge",
   version: "1",
 });
 
 /** Remediation when `REA_JADX_MCP_JAR` is missing or not an absolute path. */
-export const JADX_JAR_CONFIGURATION_REMEDIATION = `Set REA_JADX_MCP_JAR to the absolute path of a caller-supplied jadx-headless-mcp ${JADX_RELEASE.version} JAR. REA does not download or install it.`;
+export const JADX_JAR_CONFIGURATION_REMEDIATION = `Set REA_JADX_MCP_JAR to the absolute path of a caller-supplied jadx-headless-mcp ${JADX_RELEASE.version} JAR. Revo does not download or install it.`;
 
 /** Producing engine identity used by Evidence and the generated product catalog. */
 export const JADX_PROVIDER_IDENTITY = Object.freeze({

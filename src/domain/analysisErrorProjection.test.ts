@@ -294,18 +294,18 @@ describe("analysis error projection: provider failures", () => {
     );
   });
 
-  it("identifies the REA session that already owns a Hopper target", () => {
+  it("identifies the Revo session that already owns a Hopper target", () => {
     const error = new HopperStartError({
       ownerRunId: "session-owner",
       userMessage:
-        "This Hopper target is already open in REA session session-owner. Use that REA session or close it before opening this target again.",
+        "This Hopper target is already open in Revo session session-owner. Use that Revo session or close it before opening this target again.",
     });
     expect(projectAnalysisError(error)).toMatchObject({
       category: "unavailable",
       message: expect.stringContaining("session-owner"),
       remediation: {
         action: expect.stringContaining(
-          "Use the active REA session session-owner",
+          "Use the active Revo session session-owner",
         ),
       },
     });

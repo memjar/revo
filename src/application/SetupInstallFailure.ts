@@ -51,7 +51,7 @@ export const setupInstallFailure = (
         status: "failed",
         code: "integrity_mismatch",
         remediation:
-          "The Hopper download failed integrity verification. Retry setup; if it repeats, update REA before installing.",
+          "The Hopper download failed integrity verification. Retry setup; if it repeats, update Revo before installing.",
       };
     case "authorization_or_package_manager":
       return {
@@ -79,7 +79,7 @@ export const setupInstallFailure = (
         status: "failed",
         code: "unsupported_hopper_build",
         remediation:
-          "The installed Hopper launcher does not match the build supported by this REA release. Unset HOPPER_LAUNCHER_PATH, reinstall through rea setup, or update REA.",
+          "The installed Hopper launcher does not match the build supported by this Revo release. Unset HOPPER_LAUNCHER_PATH, reinstall through rea setup, or update Revo.",
       };
     case "cancelled":
       return {
@@ -107,7 +107,7 @@ export const setupInstallFailure = (
         status: "failed",
         code: "bundle_invalid",
         remediation:
-          "The mounted package did not contain the expected Hopper application bundle. Retry setup; if it repeats, update REA before installing.",
+          "The mounted package did not contain the expected Hopper application bundle. Retry setup; if it repeats, update Revo before installing.",
       };
     case "copy":
       return {
@@ -121,7 +121,7 @@ export const setupInstallFailure = (
         status: "failed",
         code: "download_failed",
         remediation:
-          "REA could not download or unpack the official Hopper package. Check network and filesystem access, then retry setup.",
+          "Revo could not download or unpack the official Hopper package. Check network and filesystem access, then retry setup.",
       };
   }
 };

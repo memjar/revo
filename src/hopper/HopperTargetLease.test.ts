@@ -23,7 +23,7 @@ afterEach(async () => {
 });
 
 describe("Hopper target leases", () => {
-  it("reports the owning REA session for a duplicate target and profile", async () => {
+  it("reports the owning Revo session for a duplicate target and profile", async () => {
     const directory = await temporaryDirectory();
     const first = await acquireHopperTargetLease({
       ...leaseInput,

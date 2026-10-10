@@ -185,7 +185,7 @@ describe("client configuration filesystem lifecycle", () => {
 });
 
 describe("Grok Build server table edits", () => {
-  it("edits only the Grok Build REA tables and removes them on uninstall", async () => {
+  it("edits only the Grok Build Revo tables and removes them on uninstall", async () => {
     const home = await createTestTempDirectory("rea-grok-");
     roots.push(home);
     const configPath = join(home, ".grok/config.toml");
@@ -393,7 +393,7 @@ describe("Grok Build disabled server list", () => {
 });
 
 describe("Grok Build text that resembles a server table", () => {
-  it("preserves Grok text that only looks like an REA table", async () => {
+  it("preserves Grok text that only looks like an Revo table", async () => {
     const home = await createTestTempDirectory("rea-grok-preserve-");
     roots.push(home);
     const configPath = join(home, ".grok/config.toml");
@@ -475,7 +475,7 @@ describe("Grok Build text that resembles a server table", () => {
     expect(parseToml(removed)).not.toHaveProperty("mcp_servers.rea");
   });
 
-  it("replaces spaced and escaped Grok REA headers without duplicating them", async () => {
+  it("replaces spaced and escaped Grok Revo headers without duplicating them", async () => {
     const home = await createTestTempDirectory("rea-grok-alias-");
     roots.push(home);
     const configPath = join(home, ".grok/config.toml");
@@ -573,7 +573,7 @@ describe("Grok Build multiline and escaped headers", () => {
     ).toEqual({ status: "unchanged" });
   });
 
-  it("replaces a hex-escaped Grok REA header and keeps a hex-escaped foreign name", async () => {
+  it("replaces a hex-escaped Grok Revo header and keeps a hex-escaped foreign name", async () => {
     const home = await createTestTempDirectory("rea-grok-hex-");
     roots.push(home);
     const configPath = join(home, ".grok/config.toml");
@@ -626,7 +626,7 @@ describe("Grok Build multiline and escaped headers", () => {
 });
 
 describe("Grok Build inline and dotted assignments", () => {
-  it("updates and removes inline and dotted Grok REA assignments", async () => {
+  it("updates and removes inline and dotted Grok Revo assignments", async () => {
     const home = await createTestTempDirectory("rea-grok-assign-");
     roots.push(home);
     const configPath = join(home, ".grok/config.toml");
@@ -732,7 +732,7 @@ describe("Grok Build inline and dotted assignments", () => {
 });
 
 describe("Grok Build closed inline tables", () => {
-  it("splices REA into a closed mcp_servers inline table", async () => {
+  it("splices Revo into a closed mcp_servers inline table", async () => {
     const home = await createTestTempDirectory("rea-grok-inline-table-");
     roots.push(home);
     const configPath = join(home, ".grok/config.toml");
@@ -909,7 +909,7 @@ describe("Grok Build scalar and nested values", () => {
     });
   });
 
-  it("removes a nested array inside a Grok REA table", async () => {
+  it("removes a nested array inside a Grok Revo table", async () => {
     const home = await createTestTempDirectory("rea-grok-nested-array-");
     roots.push(home);
     const configPath = join(home, ".grok/config.toml");
@@ -1094,7 +1094,7 @@ describe("Grok Build inline comments", () => {
     expect(parseToml(removed)).not.toHaveProperty("mcp_servers.rea");
   });
 
-  it("keeps an inline comment that sits before the Grok REA pair", async () => {
+  it("keeps an inline comment that sits before the Grok Revo pair", async () => {
     const home = await createTestTempDirectory("rea-grok-inline-before-");
     roots.push(home);
     const configPath = join(home, ".grok/config.toml");
@@ -1366,7 +1366,7 @@ describe("client configuration filesystem removal", () => {
         name: "cache",
         status: "retained",
         detail:
-          "REA did not remove this item because its managed path is a symbolic link. Verify the link target before removing it manually.",
+          "Revo did not remove this item because its managed path is a symbolic link. Verify the link target before removing it manually.",
       }),
     );
     expect((await runUninstall(true, systemUninstallHost(home))).status).toBe(
@@ -1451,7 +1451,7 @@ describe("client configuration filesystem removal", () => {
     ];
     const cursorConfig = JSON.stringify({
       mcpServers: {
-        rea: { command: "npx", args: ["-y", "rea-agents@6.1.0", "mcp"] },
+        rea: { command: "npx", args: ["-y", "@memjar/revo@6.1.0", "mcp"] },
         other: { command: "echo", args: ["hello"] },
       },
     });

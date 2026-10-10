@@ -66,13 +66,13 @@ const writeSkill = async (content: string): Promise<string> => {
 };
 
 const staleCodex =
-  '[mcp_servers.rea]\ncommand = "npx"\nargs = ["-y", "rea-agents@0.1.0", "mcp"]\n';
+  '[mcp_servers.rea]\ncommand = "npx"\nargs = ["-y", "@memjar/revo@0.1.0", "mcp"]\n';
 const action = {
   id: "configure_client:codex",
   kind: "configure_client",
   label: "Codex",
   target: "/test/.codex/config.toml",
-  detail: "Refresh the pinned REA version",
+  detail: "Refresh the pinned Revo version",
   external: false,
   operation: "update",
   backupPath: "/test/.codex/config.toml.rea.backup",
@@ -123,7 +123,7 @@ describe("OMP integration maintenance", () => {
   });
 });
 
-describe("existing REA integration maintenance", () => {
+describe("existing Revo integration maintenance", () => {
   it("selects owned registrations while preserving unconfigured, foreign, and disabled choices", async () => {
     await writeClient("codex", staleCodex);
     await writeClient("claude_code", '{"mcpServers":{}}');
@@ -133,7 +133,7 @@ describe("existing REA integration maintenance", () => {
     );
     await writeClient(
       "opencode",
-      '{"mcp":{"rea":{"type":"local","command":["npx","-y","rea-agents@0.1.0","mcp"],"enabled":false}}}',
+      '{"mcp":{"rea":{"type":"local","command":["npx","-y","@memjar/revo@0.1.0","mcp"],"enabled":false}}}',
     );
     await writeClient(
       "vscode",
@@ -165,7 +165,7 @@ describe("existing REA integration maintenance", () => {
     });
   });
 
-  it("includes an existing REA skill and leaves files untouched", async () => {
+  it("includes an existing Revo skill and leaves files untouched", async () => {
     const path = await writeSkill(
       `---\nname: ${PRODUCT_IDENTITY.skillName}\nmetadata:\n  version: "1"\n---\n# REA\n`,
     );

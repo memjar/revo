@@ -106,7 +106,7 @@ const canonicalSkillFiles = async (
     ),
   );
 
-/** Report whether setup would change any file in the managed REA skill bundle. */
+/** Report whether setup would change any file in the managed Revo skill bundle. */
 export const canonicalSkillNeedsInstall = async (
   home: string,
   clientIds: readonly string[] = [],
@@ -135,7 +135,7 @@ const restoreSkillFiles = async (
   }
 };
 
-/** Transactionally install or upgrade the canonical REA skill and references. */
+/** Transactionally install or upgrade the canonical Revo skill and references. */
 export const installCanonicalSkill = async (
   home: string,
   clientIds: readonly string[] = [],

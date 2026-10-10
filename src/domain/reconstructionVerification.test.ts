@@ -96,7 +96,7 @@ const processComparison = (
     undefined,
     {
       id: "rea-process",
-      name: "REA deterministic process harness",
+      name: "Revo deterministic process harness",
       version: "3",
     },
     {
@@ -166,7 +166,7 @@ const artifactComparison = (
     undefined,
     {
       id: "rea-artifact-comparison",
-      name: "REA artifact comparison",
+      name: "Revo artifact comparison",
       version: "1",
     },
     {

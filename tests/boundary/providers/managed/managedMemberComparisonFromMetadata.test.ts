@@ -441,7 +441,7 @@ describe("managed member comparison of ambiguous undecoded signatures", () => {
             basis: "exact-il-signature",
           }),
           limitations: [
-            "Multiple managed methods share the same non-name identity key; REA did not guess a token remap.",
+            "Multiple managed methods share the same non-name identity key; Revo did not guess a token remap.",
           ],
         }),
         expect.objectContaining({

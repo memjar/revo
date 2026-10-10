@@ -34,7 +34,7 @@ import {
   HOPPER_PROVIDER_IDENTITY,
 } from "./HopperProviderCapabilities.js";
 
-/** Concrete analysis provider backed by REA's private Hopper bridge. */
+/** Concrete analysis provider backed by Revo's private Hopper bridge. */
 export class HopperProvider implements AnalysisProviderCandidate {
   private readonly environment: Readonly<NodeJS.ProcessEnv>;
 
@@ -255,7 +255,7 @@ export class HopperProvider implements AnalysisProviderCandidate {
                   ...(preparedImage === undefined
                     ? []
                     : [
-                        "REA loaded a verified thin Mach-O slice from the original FAT64 source. Identity and file offsets refer to the original file. The owned temporary image and its Hopper document close together, including on MCP shutdown.",
+                        "Revo loaded a verified thin Mach-O slice from the original FAT64 source. Identity and file offsets refer to the original file. The owned temporary image and its Hopper document close together, including on MCP shutdown.",
                       ]),
                   ...(CAPABILITIES.find(
                     (descriptor) => descriptor.operation === operation,

@@ -11,7 +11,7 @@ import { parseEvidence } from "../../../../src/domain/evidence.js";
 
 const { runProviderAnalysis } = createDirectAnalysis({});
 
-it("inspects an artifact through the direct CLI workflow without an REA grant", async () => {
+it("inspects an artifact through the direct CLI workflow without an Revo grant", async () => {
   const root = await createTestTempDirectory("rea-artifact-direct-");
   const source = join(root, "source");
   const archive = join(root, "fixture.asar");
@@ -23,7 +23,7 @@ it("inspects an artifact through the direct CLI workflow without an REA grant", 
     await runProviderAnalysis(archive, "inspect_artifact", {}),
   );
   expect(evidence.operation).toBe("inspect_artifact");
-  expect(evidence.provider.id).toBe("rea-artifact-graph");
+  expect(evidence.provider.id).toBe("revo-artifact-graph");
   const inspection = artifactInspectionResultSchema.parse(
     evidence.normalized_result,
   );

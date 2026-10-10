@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 
-/** Source-owned case/target labels; no REA or Ghidra result defines this oracle. */
+/** Source-owned case/target labels; no Revo or Ghidra result defines this oracle. */
 export const SWITCH_FIXTURES = [
   {
     name: "dense",

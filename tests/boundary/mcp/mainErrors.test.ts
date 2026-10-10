@@ -62,7 +62,7 @@ describe("MCP runtime errors", () => {
     ).toBe(0);
     options?.onerror?.(new Error("SECRET transport stack"));
     expect(output).toEqual([
-      "REA lost its MCP client connection. Restart REA from your MCP client.\n",
+      "Revo lost its MCP client connection. Restart Revo from your MCP client.\n",
     ]);
     shutdown[0]?.();
     await nextTurn();
@@ -114,7 +114,7 @@ describe("MCP runtime errors", () => {
       ),
     ).toBe(1);
     expect(output).toEqual([
-      "REA could not start its MCP connection. Restart REA from your MCP client; run `rea doctor` if it fails again.\n",
+      "Revo could not start its MCP connection. Restart Revo from your MCP client; run `rea doctor` if it fails again.\n",
     ]);
   });
 
@@ -136,7 +136,7 @@ describe("MCP runtime errors", () => {
     await nextTurn();
     expect(exitCodes).toEqual([1]);
     expect(output).toEqual([
-      "REA could not close cleanly. End the REA process before starting it again.\n",
+      "Revo could not close cleanly. End the Revo process before starting it again.\n",
     ]);
   });
 
@@ -149,7 +149,7 @@ describe("MCP runtime errors", () => {
       (code) => exitCodes.push(code),
     );
     expect(output).toEqual([
-      "REA could not start. Run `rea doctor`, then restart REA from your MCP client.\n",
+      "Revo could not start. Run `rea doctor`, then restart Revo from your MCP client.\n",
     ]);
     expect(exitCodes).toEqual([1]);
   });

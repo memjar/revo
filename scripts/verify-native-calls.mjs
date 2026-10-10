@@ -197,7 +197,7 @@ const cliFailure = async (binary) => {
         "--json",
       ],
       {
-        env: { ...process.env, REA_LOG_LEVEL: "silent" },
+        env: { ...process.env, REVO_LOG_LEVEL: "silent" },
         timeout: CLI_TIMEOUT_MS,
       },
     );

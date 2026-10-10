@@ -251,7 +251,7 @@ const exampleEvidence = (property: "count" | "total") => {
     },
     {
       id: "rea-javascript-application",
-      name: "REA JavaScript application analyzer",
+      name: "Revo JavaScript application analyzer",
       version: "1",
     },
     {

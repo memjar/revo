@@ -38,7 +38,7 @@ describe("artifact archive inventory", () => {
     );
     expect(cliEvidence).toMatchObject({
       operation: "inventory_artifact",
-      provider: { id: "rea-artifact-graph" },
+      provider: { id: "revo-artifact-graph" },
       subject: { format: "apk" },
     });
     const inspectionEvidence = parseEvidence(

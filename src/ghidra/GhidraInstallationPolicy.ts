@@ -1,4 +1,4 @@
-/** Ghidra build whose bridge behavior this REA release verifies. */
+/** Ghidra build whose bridge behavior this Revo release verifies. */
 export const SUPPORTED_GHIDRA_VERSION = "12.1.4";
 /**
  * JDK major used when an installation omits `application.java.min`.

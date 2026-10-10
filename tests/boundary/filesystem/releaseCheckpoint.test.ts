@@ -23,12 +23,12 @@ async function metadata(
   await mkdir(join(directory, "docs"), { recursive: true });
   await mkdir(join(directory, "src"), { recursive: true });
   const files = {
-    "package.json": { name: "rea-agents", version },
+    "package.json": { name: "@memjar/revo", version },
     "package-lock.json": { version, packages: { "": { version } } },
     ".release-please-manifest.json": { ".": version },
     "server.json": {
       version,
-      packages: [{ identifier: "rea-agents", version }],
+      packages: [{ identifier: "@memjar/revo", version }],
     },
     "release-please-config.json": {
       ...(versioning === undefined ? {} : { versioning }),
@@ -71,7 +71,7 @@ async function fixture(
     "2026-01-03T00:00:00Z",
   );
   const releasedSha = await git(directory, ["rev-parse", "HEAD"]);
-  await git(directory, ["tag", "rea-agents-5.0.0"]);
+  await git(directory, ["tag", "@memjar/revo-5.0.0"]);
   await git(directory, ["switch", "main"]);
   if (options.mergePullRequest) {
     await git(directory, ["switch", "-c", "change/contracts"]);
@@ -500,7 +500,7 @@ it.each([
             : path === "server.json"
               ? {
                   version: "6.0.0",
-                  packages: [{ identifier: "rea-agents", version: "5.1.0" }],
+                  packages: [{ identifier: "@memjar/revo", version: "5.1.0" }],
                 }
               : { package: { version: "5.1.0" } },
         ),
@@ -544,7 +544,7 @@ it("reports other omitted entries for review without inventing a breaking change
 
 it("reports a missing published tag with recovery advice", async () => {
   const f = await fixture();
-  await git(f.directory, ["tag", "-d", "rea-agents-5.0.0"]);
+  await git(f.directory, ["tag", "-d", "@memjar/revo-5.0.0"]);
   await expect(verify(f, "6.0.0", "prepare", "source")).rejects.toMatchObject({
     code: 1,
     stderr: expect.stringContaining("Fetch release tags"),
@@ -554,7 +554,7 @@ it("reports a missing published tag with recovery advice", async () => {
 it("rejects a published baseline outside the selected ancestry", async () => {
   const f = await fixture();
   const next = await candidate(f, "6.0.0");
-  await git(f.directory, ["tag", "-f", "rea-agents-5.0.0", next]);
+  await git(f.directory, ["tag", "-f", "@memjar/revo-5.0.0", next]);
   await expect(verify(f, "6.0.0", "prepare", "source")).rejects.toMatchObject({
     code: 1,
     stderr: expect.stringContaining(

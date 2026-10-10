@@ -188,7 +188,7 @@ describe("HopperClient startup failures", () => {
     ).toBe(true);
     await expect(client.start()).resolves.toEqual({
       ok: true,
-      value: { name: "REA Hopper bridge", version: "1.0.0" },
+      value: { name: "Revo Hopper bridge", version: "1.0.0" },
     });
     await expect(
       client.callTool("echo", { value: "retried" }),
@@ -214,7 +214,7 @@ describe("HopperClient startup failures", () => {
     expect(launcher.processes).toHaveLength(0);
     await expect(client.start()).resolves.toEqual({
       ok: true,
-      value: { name: "REA Hopper bridge", version: "1.0.0" },
+      value: { name: "Revo Hopper bridge", version: "1.0.0" },
     });
     expect(launcher.processes).toHaveLength(1);
     await expect(

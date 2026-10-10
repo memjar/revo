@@ -71,7 +71,7 @@ export async function verifyBrowserRuntime(
     let isolatedContext = await createRuntimeIsolatedWorld(action);
     const env = {
       ...process.env,
-      REA_LOG_LEVEL: "silent",
+      REVO_LOG_LEVEL: "silent",
       HOPPER_LAUNCHER_PATH: "/rea-unconfigured-provider/hopper",
     };
     const input = { cdp_endpoint: endpoint, target_id: target.target_id };

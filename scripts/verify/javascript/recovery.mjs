@@ -23,7 +23,7 @@ if (!process.env.REA_WAKARU_COMMAND)
 const entrypoint =
   process.argv[2] ?? fileURLToPath(new URL("../../rea.mjs", import.meta.url));
 const root = await mkdtemp(join(tmpdir(), "rea-real-recovery-"));
-const environment = { ...process.env, REA_LOG_LEVEL: "silent" };
+const environment = { ...process.env, REVO_LOG_LEVEL: "silent" };
 const transport = new StdioClientTransport({
   command: process.execPath,
   args: [entrypoint, "mcp"],

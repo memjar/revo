@@ -472,7 +472,7 @@ describe("platform-aware client config paths", () => {
     );
   });
 
-  it("recognizes prior exact REA releases while rejecting foreign package commands", () => {
+  it("recognizes prior exact Revo releases while rejecting foreign package commands", () => {
     expect(
       isOwnedClientRegistrationCommand([
         "npx",

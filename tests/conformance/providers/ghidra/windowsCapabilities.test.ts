@@ -37,7 +37,7 @@ const dependencies = (
   }),
   probePrivateAcl: () => ({
     available: false,
-    reason: "Windows ACL enforcement is not implemented by this REA build",
+    reason: "Windows ACL enforcement is not implemented by this Revo build",
   }),
   probeUnixDomainSocket: () => ({
     available: false,
@@ -78,7 +78,7 @@ describe("Windows host capability report", () => {
         private_acl: {
           available: false,
           reason:
-            "Windows ACL enforcement is not implemented by this REA build",
+            "Windows ACL enforcement is not implemented by this Revo build",
         },
         unix_domain_socket: {
           available: false,

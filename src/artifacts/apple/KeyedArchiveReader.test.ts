@@ -97,7 +97,7 @@ describe("inert keyed archive decoding", () => {
     });
     expect(graph.objects.map(({ value }) => value)).toEqual(["$null", "value"]);
     expect(graph.limitations).toContain(
-      "1 dictionary entry keyed __proto__ was omitted because REA results cannot represent that key.",
+      "1 dictionary entry keyed __proto__ was omitted because Revo results cannot represent that key.",
     );
   });
   it("rejects missing roots, malformed plist, and non-keyed archives", () => {

@@ -102,13 +102,13 @@ export const materializeArtifactInventory = async (
     nodes,
   };
   const selected = activeOccurrences.map((occurrence) => {
-    // REA never decrypts archive entries, so an encrypted entry makes the
+    // Revo never decrypts archive entries, so an encrypted entry makes the
     // complete extraction unsupported rather than the archive invalid.
     if (occurrence.encrypted)
       throw new AnalysisUnsupportedTargetError(
         "extract_artifact",
         input.inputPath,
-        `Archive entry ${occurrence.logical_path} is encrypted; REA does not decrypt archive entries, so the archive cannot be extracted completely`,
+        `Archive entry ${occurrence.logical_path} is encrypted; Revo does not decrypt archive entries, so the archive cannot be extracted completely`,
       );
     if (
       (occurrence.entry_kind !== "file" && occurrence.entry_kind !== "slice") ||

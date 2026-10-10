@@ -9,7 +9,7 @@ import type { ProviderIdentity } from "../AnalysisProvider.js";
 /** Provider identity for analyst-authored residual-unknown mutations. */
 export const UNKNOWN_REGISTRY_PROVIDER: ProviderIdentity = {
   id: "rea-unknown-registry",
-  name: "REA residual unknown registry",
+  name: "Revo residual unknown registry",
   version: "1",
 };
 

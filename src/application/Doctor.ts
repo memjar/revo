@@ -246,7 +246,7 @@ const collectDoctorIdentity = async (
               : "stale",
         remediation: skillAligned
           ? null
-          : "Run rea setup to update the installed REA skill.",
+          : "Run rea setup to update the installed Revo skill.",
       },
       registrations,
     },
@@ -268,9 +268,9 @@ const skillIdentityCheck = (
   classification: "config_drift",
   detail:
     identity === undefined
-      ? "Installed REA skill identity is missing."
-      : "Installed REA skill identity is stale.",
-  remediation: "Run rea setup to update the installed REA skill.",
+      ? "Installed Revo skill identity is missing."
+      : "Installed Revo skill identity is stale.",
+  remediation: "Run rea setup to update the installed Revo skill.",
 });
 
 const registrationCheck = (
@@ -426,7 +426,7 @@ export const systemDoctorHost = (
     async installationPaths() {
       try {
         const command = platform === "win32" ? "where" : "which";
-        const arguments_ = platform === "win32" ? ["rea"] : ["-a", "rea"];
+        const arguments_ = platform === "win32" ? ["revo"] : ["-a", "revo"];
         return uniqueLines(
           (await hostExecFileOutput(command, arguments_, commandEnvironment))
             .stdout,

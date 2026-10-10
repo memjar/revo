@@ -80,7 +80,7 @@ guard xmlParser.parse(), let plist = xmlReader.document.children.first else {
 }
 let originalXMLTable = readPlist(plist)
 
-// Extract actual UID/class/identifier/parent facts, without REA or unarchiving.
+// Extract actual UID/class/identifier/parent facts, without Revo or unarchiving.
 guard let archive = originalXMLTable as? [String: Any],
       let table = archive["$objects"] as? [Any],
       let top = archive["$top"] as? [String: Any] else {

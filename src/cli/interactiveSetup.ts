@@ -37,7 +37,7 @@ export const confirmInteractiveSetup = async (
   context?: SetupConfirmationContext,
 ): Promise<SetupConfirmationDecision> => {
   if (context?.stage === "select" || context === undefined) {
-    intro("REA setup", promptStreams);
+    intro("Revo setup", promptStreams);
     writeLine(
       "│  Understand local apps and binaries from your terminal or agent.",
     );
@@ -94,8 +94,8 @@ export const renderInteractiveSetupResult = (
     renderReadyCapabilities(result, readyClients, environment);
     outro(
       changedClients.length === 0
-        ? "REA is ready for local app analysis."
-        : `Restart ${changedClients.join(", ")} to load REA.`,
+        ? "Revo is ready for local app analysis."
+        : `Restart ${changedClients.join(", ")} to load Revo.`,
       promptStreams,
     );
     return;
@@ -130,7 +130,7 @@ const selectSetupActions = async (
     else {
       const included = await confirm({
         ...promptStreams,
-        message: "Install the guided REA skill for CLI use?",
+        message: "Install the guided Revo skill for CLI use?",
         initialValue: false,
         vertical: accessible,
       });
@@ -154,7 +154,7 @@ const selectSetupActions = async (
 
 const clientHint = (state: SetupClientState): string =>
   state.configured
-    ? "REA already configured · selected from existing configuration"
+    ? "Revo already configured · selected from existing configuration"
     : state.status === "invalid"
       ? "Existing configuration needs repair before setup"
       : state.detected
@@ -225,7 +225,7 @@ const renderKeyboardHelp = (accessible: boolean): void => {
 };
 
 const cliInvocation = (environment: Readonly<NodeJS.ProcessEnv>): string =>
-  environment.npm_command === "exec" ? "npx rea-agents" : "rea";
+  environment.npm_command === "exec" ? "npx @memjar/revo" : "revo";
 
 const renderReadyCapabilities = (
   result: SetupResult,
@@ -292,7 +292,7 @@ const renderPreflight = (actions: readonly SetupAction[]): void => {
   }
   writeLine("│");
   writeLine(
-    "│  REA will preserve unrelated configuration and will not install or upgrade Node.js, npm, Homebrew, Java, or Ghidra.",
+    "│  Revo will preserve unrelated configuration and will not install or upgrade Node.js, npm, Homebrew, Java, or Ghidra.",
   );
 };
 

@@ -33,8 +33,8 @@ const comparison = (
     {
       id: process ? "rea-process" : "rea-artifact-comparison",
       name: process
-        ? "REA deterministic process harness"
-        : "REA artifact comparison",
+        ? "Revo deterministic process harness"
+        : "Revo artifact comparison",
       version: operation === "compare_process_captures" ? "3" : "1",
     },
     {

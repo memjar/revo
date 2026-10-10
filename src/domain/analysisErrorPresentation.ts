@@ -49,10 +49,10 @@ export const analysisErrorRemediationAction = (
       (error.resource === "transport"
         ? "Export retained session evidence through export_evidence_bundle to a caller-selected path, or use complete CLI JSON output. Tools that accept retained-evidence references can inspect compatible records. The connection remains usable."
         : error.resource === "cpu"
-          ? "Review the reported worker CPU limits and observed signal. Retry with sufficient CPU time or a smaller artifact; REA retains tighter inherited limits."
+          ? "Review the reported worker CPU limits and observed signal. Retry with sufficient CPU time or a smaller artifact; Revo retains tighter inherited limits."
           : error.resource === "file-size"
-            ? "Review the reported worker file-size limits and write failure. Retry with a sufficient file-size allowance for the evidence reply; REA retains tighter inherited limits."
-            : "Review the reported worker memory limits and available host memory. Retry with sufficient memory or a smaller artifact; REA retains tighter inherited limits.")
+            ? "Review the reported worker file-size limits and write failure. Retry with a sufficient file-size allowance for the evidence reply; Revo retains tighter inherited limits."
+            : "Review the reported worker memory limits and available host memory. Retry with sufficient memory or a smaller artifact; Revo retains tighter inherited limits.")
     );
   if (error instanceof HopperTimeoutError)
     return error.operation === undefined
@@ -65,7 +65,7 @@ export const analysisErrorRemediationAction = (
   if (error instanceof HopperStartError)
     return error.ownerRunId === undefined
       ? "Check the Hopper launcher and target details, then retry opening the target."
-      : `Use the active REA session ${error.ownerRunId} or close it before opening this target again.`;
+      : `Use the active Revo session ${error.ownerRunId} or close it before opening this target again.`;
   if (error instanceof HopperRemoteError)
     return error.diagnosticType === "invalid_request"
       ? "Correct the reported address, document, or arguments and retry."
@@ -83,9 +83,9 @@ export const analysisErrorRemediationAction = (
   )
     return "Check the current process's read access to the selected path. Retry with a readable local file.";
   if (error instanceof AnalysisArtifactChangedError)
-    return "Wait until the selected file is stable. For an active binary session, reopen the target with open_binary before retrying so REA acquires its current identity; for a CLI command or target-free tool, rerun the operation.";
+    return "Wait until the selected file is stable. For an active binary session, reopen the target with open_binary before retrying so Revo acquires its current identity; for a CLI command or target-free tool, rerun the operation.";
   if (error instanceof ConfigurationError && error.settings.length > 0)
-    return `Correct ${[...new Set(error.settings.map(({ setting }) => setting))].join(", ")} in the environment that starts REA (your shell or the MCP client's registration), then rerun.`;
+    return `Correct ${[...new Set(error.settings.map(({ setting }) => setting))].join(", ")} in the environment that starts Revo (your shell or the MCP client's registration), then rerun.`;
   if (error instanceof AnalysisInputError)
     return "Correct the listed arguments and retry.";
   if (error instanceof UnknownRegistryError && error.reason === "not-found")
@@ -205,8 +205,8 @@ export const analysisErrorUserMessage = (error: AnalysisError): string => {
     return "Evidence state changed before the update completed. Refresh the current state and try again.";
   if (error instanceof ConfigurationError)
     return error.settings.length === 0
-      ? "REA configuration is invalid. Run `rea doctor` and fix the reported setting."
-      : `REA configuration is invalid: ${error.settings
+      ? "Revo configuration is invalid. Run `rea doctor` and fix the reported setting."
+      : `Revo configuration is invalid: ${error.settings
           .map(({ setting, constraint }) =>
             constraint.includes(setting)
               ? constraint.replace(/\.$/u, "")
@@ -229,7 +229,7 @@ export const analysisErrorUserMessage = (error: AnalysisError): string => {
 const hopperErrorUserMessage = (error: AnalysisError): string | undefined => {
   if (error instanceof HopperTimeoutError) {
     if (error.operation === undefined)
-      return "REA timed out waiting for Hopper bridge readiness. Hopper may be waiting for a loader or license dialog; inspect its window and the captured launcher outcome before retrying.";
+      return "Revo timed out waiting for Hopper bridge readiness. Hopper may be waiting for a loader or license dialog; inspect its window and the captured launcher outcome before retrying.";
     const request = error.operation;
     return error.providerState === "busy"
       ? `Hopper timed out during ${request} while the provider remained busy. Check binary_session.analysis_activity, wait for the active request to finish, then retry.`
@@ -281,7 +281,7 @@ const hopperProcessMessage = (error: HopperProcessError): string => {
   }
   if (error.providerState === "unreachable")
     return `Hopper became unreachable during ${where}; its process exit was not observed. ${RESTART_OWNED_PROVIDER}${startup}${request}`;
-  return `Hopper failed during ${where} and REA could not determine whether the provider is busy, exited, or unreachable.${startup} Read binary_session.provider_operation_health for this request before retrying or restarting.${request}`;
+  return `Hopper failed during ${where} and Revo could not determine whether the provider is busy, exited, or unreachable.${startup} Read binary_session.provider_operation_health for this request before retrying or restarting.${request}`;
 };
 
 const standardErrorMessage = (tag: AnalysisErrorTag): string | undefined => {

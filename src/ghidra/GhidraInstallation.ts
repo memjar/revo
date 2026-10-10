@@ -140,7 +140,7 @@ const assessNativeDecompiler = (
   return {
     status: "incompatible",
     detail: `${path} reports ${observed}, but ${platform}/${architecture} requires ${expected}`,
-    remediation: `Provide an executable Ghidra/Features/Decompiler/os/${nativeDirectory ?? "<platform>"}/${executable} built for ${expected}, or its build/os equivalent. REA does not build or install native tools.`,
+    remediation: `Provide an executable Ghidra/Features/Decompiler/os/${nativeDirectory ?? "<platform>"}/${executable} built for ${expected}, or its build/os equivalent. Revo does not build or install native tools.`,
   };
 };
 
@@ -487,7 +487,7 @@ const installationChecks = ({
 ];
 
 /**
- * REA's configuration parser, and so the MCP server and analysis, accept only
+ * Revo's configuration parser, and so the MCP server and analysis, accept only
  * absolute paths; a relative one that happens to resolve here must not pass.
  */
 const configurationCheck = (
@@ -516,7 +516,7 @@ const configurationCheck = (
     passed: false,
     code: "not_configured",
     detail: `${settings} must be absolute`,
-    remediation: `Set ${settings} to ${relative.length === 1 ? "an absolute path" : "absolute paths"}. REA's analysis and MCP server reject relative paths even when they resolve from the current directory.`,
+    remediation: `Set ${settings} to ${relative.length === 1 ? "an absolute path" : "absolute paths"}. Revo's analysis and MCP server reject relative paths even when they resolve from the current directory.`,
   });
 };
 
@@ -619,7 +619,7 @@ const nativeDecompilerCheck = ({
     remediation:
       compatibility?.status === "incompatible"
         ? compatibility.remediation
-        : `Provide an executable Ghidra/Features/Decompiler/os/${NATIVE_PLATFORMS[platform]?.[architecture] ?? "<platform>"}/${platform === "win32" ? "decompile.exe" : "decompile"}, or its build/os equivalent. REA does not build or install native tools.`,
+        : `Provide an executable Ghidra/Features/Decompiler/os/${NATIVE_PLATFORMS[platform]?.[architecture] ?? "<platform>"}/${platform === "win32" ? "decompile.exe" : "decompile"}, or its build/os equivalent. Revo does not build or install native tools.`,
   });
 };
 
@@ -635,7 +635,7 @@ const versionCheck = (
         ? "unsupported_version"
         : "version_unresolved",
     detail: ghidraVersionDetail(raw),
-    remediation: `Install a Ghidra ${ghidraReleaseLine()} release (verified with ${SUPPORTED_GHIDRA_VERSION}), or update REA for another Ghidra line.`,
+    remediation: `Install a Ghidra ${ghidraReleaseLine()} release (verified with ${SUPPORTED_GHIDRA_VERSION}), or update Revo for another Ghidra line.`,
   });
 };
 
@@ -680,7 +680,7 @@ const javaRemediation = (
   if (requirement.unresolved !== null)
     return `The Ghidra installation's Java bounds could not be read (${requirement.unresolved}). Install a 64-bit full JDK inside the declared application.java.min and application.java.max.`;
   return configuredHome === undefined
-    ? `Install ${range}, or set JAVA_HOME before starting REA.`
+    ? `Install ${range}, or set JAVA_HOME before starting Revo.`
     : `Update JAVA_HOME to the root of ${range} installation.`;
 };
 

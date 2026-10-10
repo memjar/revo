@@ -22,7 +22,7 @@ describe("doctor", () => {
       ),
     ).toEqual({
       node: `Install ${SUPPORTED_NODE_VERSION_PROSE}.`,
-      host: "REA supports macOS 12+, Ubuntu 24.04+, Fedora 41+, Nobara 44+, 64-bit Arch Linux, CachyOS, and the experimental Windows x64 Ghidra P0 boundary.",
+      host: "Revo supports macOS 12+, Ubuntu 24.04+, Fedora 41+, Nobara 44+, 64-bit Arch Linux, CachyOS, and the experimental Windows x64 Ghidra P0 boundary.",
       hopper: "Run rea setup to install Hopper, or set HOPPER_LAUNCHER_PATH.",
       target: "Supply a readable local app or program path.",
     });
@@ -187,7 +187,7 @@ describe("doctor installation identity", () => {
       skill: {
         installed_version: "10",
         state: "stale",
-        remediation: "Run rea setup to update the installed REA skill.",
+        remediation: "Run rea setup to update the installed Revo skill.",
       },
     });
   });
@@ -200,14 +200,14 @@ describe("doctor installation identity", () => {
     expect(result.healthy).toBe(false);
     expect(result.identity?.skill).toMatchObject({
       state: "missing",
-      remediation: "Run rea setup to update the installed REA skill.",
+      remediation: "Run rea setup to update the installed Revo skill.",
     });
     expect(result.checks).toContainEqual({
       name: "skill:identity",
       ok: false,
       classification: "config_drift",
-      detail: "Installed REA skill identity is missing.",
-      remediation: "Run rea setup to update the installed REA skill.",
+      detail: "Installed Revo skill identity is missing.",
+      remediation: "Run rea setup to update the installed Revo skill.",
     });
   });
   it("reports stale client registration paths without claiming live state", async () => {

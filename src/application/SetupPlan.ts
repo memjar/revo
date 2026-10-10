@@ -235,7 +235,7 @@ const setupPlan = (input: {
               : "system package manager",
           detail:
             input.platform === "linux"
-              ? "Download, verify, and install Hopper plus its Xvfb demo-session dependencies. For the supported demo build, REA uses a private display and selects Hopper's offered demo mode for each analysis session."
+              ? "Download, verify, and install Hopper plus its Xvfb demo-session dependencies. For the supported demo build, Revo uses a private display and selects Hopper's offered demo mode for each analysis session."
               : "Download the official Hopper package, verify it, and install it. Hopper may show its demo or license prompt when first opened.",
           external: true,
           operation: "install" as const,
@@ -280,13 +280,13 @@ const setupPlan = (input: {
         kind: "install_skill",
         label:
           client === "claude_code"
-            ? "REA skill for Claude Code"
-            : "REA reverse-engineering skill",
+            ? "Revo skill for Claude Code"
+            : "Revo reverse-engineering skill",
         target: path,
         detail:
           client === "claude_code"
-            ? "Install or update the REA skill in Claude Code's personal skill directory."
-            : "Install or update the bundled REA reverse-engineering skill and on-demand references.",
+            ? "Install or update the Revo skill in Claude Code's personal skill directory."
+            : "Install or update the bundled Revo reverse-engineering skill and on-demand references.",
         external: false,
         operation: "install",
       }))
@@ -323,8 +323,8 @@ const clientConfigurationDetail = (
       : ` Environment: ${entries.join(", ")}.`;
   const hopperDetail = installHopper
     ? environment.HOPPER_LAUNCHER_PATH === undefined
-      ? " If this plan installs Hopper, REA will add HOPPER_LAUNCHER_PATH using the launcher path reported by that installation."
-      : " The HOPPER_LAUNCHER_PATH value shown above is the current fallback; if this plan installs Hopper, REA will replace it with the launcher path reported by that installation."
+      ? " If this plan installs Hopper, Revo will add HOPPER_LAUNCHER_PATH using the launcher path reported by that installation."
+      : " The HOPPER_LAUNCHER_PATH value shown above is the current fallback; if this plan installs Hopper, Revo will replace it with the launcher path reported by that installation."
     : "";
-  return `Add the REA MCP registration for ${client}; preserve unrelated configuration. Command: ${command.map((part) => JSON.stringify(part)).join(" ")}.${environmentDetail}${hopperDetail}`;
+  return `Add the Revo MCP registration for ${client}; preserve unrelated configuration. Command: ${command.map((part) => JSON.stringify(part)).join(" ")}.${environmentDetail}${hopperDetail}`;
 };

@@ -22,14 +22,14 @@ const actions = [
     kind: "configure_client",
     label: "Codex",
     target: "/isolated/.codex/config.toml",
-    detail: "Add the REA MCP registration for Codex.",
+    detail: "Add the Revo MCP registration for Codex.",
     external: false,
     operation: "create",
   },
   {
     id: "install_skill",
     kind: "install_skill",
-    label: "REA reverse-engineering skill",
+    label: "Revo reverse-engineering skill",
     target: "/isolated/.agents/skills/reverse-engineering/SKILL.md",
     detail: "Install the bundled reverse-engineering skill.",
     external: false,
@@ -85,7 +85,7 @@ describe("interactive setup journey", () => {
       "Not detected · configuration is still available",
     );
     expect(result.output).toContain("Which agents should use REA?");
-    expect(result.output).not.toContain("What should REA set up?");
+    expect(result.output).not.toContain("What should Revo set up?");
     expect(result.decision.selectedActionIds).toEqual([]);
   });
 
@@ -126,13 +126,13 @@ describe("interactive setup journey", () => {
           ...actions[0],
           operation: "update",
           backupPath: "/isolated/.codex/config.toml.bak",
-          commands: ["npx -y rea-agents@3.2.1 mcp"],
+          commands: ["npx -y @memjar/revo@3.2.1 mcp"],
         },
         actions[1],
       ],
     );
     expect(result.output).toContain("/isolated/.codex/config.toml.bak");
-    expect(result.output).toContain("command: npx -y rea-agents@3.2.1 mcp");
+    expect(result.output).toContain("command: npx -y @memjar/revo@3.2.1 mcp");
     expect(result.output.indexOf("command:")).toBeLessThan(
       result.output.indexOf("Apply these 2 changes?"),
     );
@@ -159,7 +159,7 @@ describe("interactive setup journey", () => {
   it("can install the skill for CLI use without an agent registration", async () => {
     const result = await runJourney([
       step("Which agents should use REA?", "\r"),
-      step("Install the guided REA skill for CLI use?", "\u001b[D\r"),
+      step("Install the guided Revo skill for CLI use?", "\u001b[D\r"),
       step("Apply this change?", "\r"),
     ]);
     expect(result.decision.selectedActionIds).toEqual(["install_skill"]);
@@ -197,7 +197,7 @@ describe("interactive setup journey", () => {
     ]);
   });
 
-  it("preselects only a prior REA registration", async () => {
+  it("preselects only a prior Revo registration", async () => {
     const result = await runJourney(
       [
         step("Which agents should use REA?", "\r"),
@@ -217,7 +217,7 @@ describe("interactive setup journey", () => {
 describe("interactive setup completion", () => {
   it.each([
     { npmCommand: "", launcher: "rea" },
-    { npmCommand: "exec", launcher: "npx rea-agents" },
+    { npmCommand: "exec", launcher: "npx @memjar/revo" },
   ])(
     "prints an available next command for $launcher invocation",
     async ({ npmCommand, launcher }) => {

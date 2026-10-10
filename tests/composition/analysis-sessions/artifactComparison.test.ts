@@ -16,8 +16,8 @@ import { createEvidence } from "../../../src/domain/evidence.js";
 import { jsonValueSchema } from "../../../src/domain/jsonValue.js";
 
 const PROVIDER = {
-  id: "rea-artifact-graph",
-  name: "REA artifact graph",
+  id: "revo-artifact-graph",
+  name: "Revo artifact graph",
   version: "1",
 } as const;
 

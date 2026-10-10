@@ -13,7 +13,7 @@ export type WindowsNativeCapability =
       readonly proof: "not-proven" | "not-applicable";
     };
 
-/** Security controls required before REA may claim Windows isolation. */
+/** Security controls required before Revo may claim Windows isolation. */
 export interface WindowsNativeCapabilitySet {
   readonly job_object_process_ownership: WindowsNativeCapability;
   readonly private_runtime_dacl: WindowsNativeCapability;
@@ -22,7 +22,7 @@ export interface WindowsNativeCapabilitySet {
 
 /** Stable explanation used whenever the native Windows authority is absent. */
 export const WINDOWS_NATIVE_AUTHORITY_UNAVAILABLE_REASON =
-  "Windows native controls are unavailable in this runtime; use the Windows x64 REA package with its matching bundled native artifact.";
+  "Windows native controls are unavailable in this runtime; use the Windows x64 Revo package with its matching bundled native artifact.";
 
 /**
  * Describe native Windows controls without inferring them from taskkill,

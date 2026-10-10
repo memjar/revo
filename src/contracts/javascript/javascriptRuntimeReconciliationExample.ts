@@ -121,7 +121,7 @@ export const JAVASCRIPT_APPLICATION_EVIDENCE_EXAMPLE = createEvidence(
   { path: inputPath, sha256: applicationSha256, format: "directory" },
   {
     id: "rea-javascript-application",
-    name: "REA JavaScript application analyzer",
+    name: "Revo JavaScript application analyzer",
     version: "1",
   },
   {
@@ -182,7 +182,7 @@ const runtimeEvidence = createEvidence(
   undefined,
   {
     id: "rea-cdp-electron",
-    name: "REA Electron file-page CDP observation provider",
+    name: "Revo Electron file-page CDP observation provider",
     version: "1",
   },
   {

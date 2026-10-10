@@ -370,7 +370,7 @@ const workflowAvailabilityFor = ({
       : {
           reason: "provider_missing",
           remediation:
-            "Start REA with its JavaScript runtime provider available.",
+            "Start Revo with its JavaScript runtime provider available.",
         };
   if (kind === "session") return { reason: "available", remediation: null };
   return null;
@@ -388,14 +388,14 @@ const electronProviderAvailability = (
       : {
           reason: "provider_missing",
           remediation:
-            "Start REA with the Electron scenario provider available.",
+            "Start Revo with the Electron scenario provider available.",
         };
   return policy.electronObservationEnabled === true
     ? { reason: "available", remediation: null }
     : {
         reason: "provider_missing",
         remediation:
-          "Start REA with its Electron observation provider available.",
+          "Start Revo with its Electron observation provider available.",
       };
 };
 
@@ -410,7 +410,7 @@ const browserProviderAvailability = (
       : {
           reason: "provider_missing",
           remediation:
-            "Start REA with its browser scenario provider available.",
+            "Start Revo with its browser scenario provider available.",
         };
   if (kind !== "browser-provider") return null;
   return policy.browserObservationEnabled === true
@@ -418,7 +418,7 @@ const browserProviderAvailability = (
     : {
         reason: "provider_missing",
         remediation:
-          "Start REA with its browser observation provider available.",
+          "Start Revo with its browser observation provider available.",
       };
 };
 

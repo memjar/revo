@@ -137,7 +137,7 @@ const verifyInteractiveSetup = async ({
       ) {
         finish(
           new Error(
-            `packaged rea-agents setup did not cancel with a restored terminal and exit 0: ${output}`,
+            `packaged @memjar/revo setup did not cancel with a restored terminal and exit 0: ${output}`,
           ),
         );
         return;

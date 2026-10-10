@@ -15,7 +15,7 @@ export async function verifyBrowserDomDestinations(
   entrypoint = fileURLToPath(new URL("../rea.mjs", import.meta.url)),
   documentUrl,
 ) {
-  const env = { ...process.env, REA_LOG_LEVEL: "silent" };
+  const env = { ...process.env, REVO_LOG_LEVEL: "silent" };
   const { stdout } = await promisify(execFile)(
     process.execPath,
     [

@@ -40,7 +40,7 @@ export const createWorkflowEvidence = (input: {
           ),
         }),
     confidence: "derived",
-    limitations: ["Derived by an REA composed workflow."],
+    limitations: ["Derived by an Revo composed workflow."],
     ...(input.operation === "batch_decompile"
       ? { locations: batchProcedureLocations(input.result) }
       : {}),

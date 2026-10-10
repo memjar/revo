@@ -16,7 +16,7 @@ import { verifyGhidraBoundaries } from "./real-ghidra-boundaries.mjs";
 const defaultEntrypoint = fileURLToPath(new URL("../rea.mjs", import.meta.url));
 const environment = () => ({
   PATH: process.env.PATH ?? "/usr/bin:/bin",
-  REA_LOG_LEVEL: "silent",
+  REVO_LOG_LEVEL: "silent",
   REA_ANALYSIS_PROVIDER: "ghidra",
   HOPPER_LAUNCHER_PATH: "/rea-unconfigured-deep-provider/hopper",
   ...(process.env.GHIDRA_INSTALL_DIR === undefined

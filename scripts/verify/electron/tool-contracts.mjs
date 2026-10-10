@@ -48,7 +48,7 @@ window.loadFile("renderer.html");require("node:fs").writeFileSync(${JSON.stringi
     args: [entrypoint, "mcp"],
     env: {
       PATH: process.env.PATH,
-      REA_LOG_LEVEL: "silent",
+      REVO_LOG_LEVEL: "silent",
       HOPPER_LAUNCHER_PATH: "/rea-unconfigured/hopper",
     },
     stderr: "pipe",
@@ -153,7 +153,7 @@ window.loadFile("renderer.html");require("node:fs").writeFileSync(${JSON.stringi
         "--json",
       ],
       {
-        env: { ...process.env, REA_LOG_LEVEL: "silent" },
+        env: { ...process.env, REVO_LOG_LEVEL: "silent" },
         timeout: 60_000,
         maxBuffer: 32 * 1024 * 1024,
       },
@@ -261,7 +261,7 @@ async function verifyCancellation({ input, ready, entrypoint, root }) {
     ],
     {
       cwd: root,
-      env: { ...process.env, REA_LOG_LEVEL: "silent" },
+      env: { ...process.env, REVO_LOG_LEVEL: "silent" },
       stdio: ["ignore", "pipe", "pipe"],
     },
   );

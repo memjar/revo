@@ -186,7 +186,7 @@ const server = createServer((socket) => {
           {
             id: request.id,
             result: {
-              name: "REA Hopper bridge",
+              name: "Revo Hopper bridge",
               version: "1.0.0",
               run_id: runId,
             },

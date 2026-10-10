@@ -68,6 +68,6 @@ it("omits own __proto__ entries that JSON decoding creates", () => {
     omittedPrototypeKeys: 2,
   });
   expect(omittedPrototypeKeysLimitation(1)).toBe(
-    "1 dictionary entry keyed __proto__ was omitted because REA results cannot represent that key.",
+    "1 dictionary entry keyed __proto__ was omitted because Revo results cannot represent that key.",
   );
 });

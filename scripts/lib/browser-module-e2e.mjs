@@ -24,7 +24,7 @@ export async function verifyBrowserModules(
   const root = await mkdtemp(join(tmpdir(), "rea-browser-modules-"));
   const env = {
     ...process.env,
-    REA_LOG_LEVEL: "silent",
+    REVO_LOG_LEVEL: "silent",
     REA_BROWSER_EXECUTABLE: executable,
     HOPPER_LAUNCHER_PATH: "/rea-unconfigured-provider/hopper",
   };

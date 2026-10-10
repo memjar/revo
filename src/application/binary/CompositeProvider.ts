@@ -19,7 +19,7 @@ const compositeProviderIdentity = (
     .map(({ id }) => id)
     .sort()
     .join("+")}`,
-  name: "REA composite analysis provider",
+  name: "Revo composite analysis provider",
   version: null,
 });
 

@@ -118,7 +118,7 @@ describe("client registration status", () => {
     await mkdir(join(home, ".codex"));
     await writeFile(
       join(home, ".codex/config.toml"),
-      '[mcp_servers.rea]\ncommand = "npx"\nargs = ["-y", "rea-agents", "mcp"]\n',
+      '[mcp_servers.rea]\ncommand = "npx"\nargs = ["-y", "@memjar/revo", "mcp"]\n',
     );
 
     const statuses = await readClientRegistrationStatuses(home);
@@ -126,7 +126,7 @@ describe("client registration status", () => {
     expect(statuses).toEqual([
       expect.objectContaining({
         client: "codex",
-        command: ["npx", "-y", "rea-agents", "mcp"],
+        command: ["npx", "-y", "@memjar/revo", "mcp"],
         state: "stale",
       }),
     ]);

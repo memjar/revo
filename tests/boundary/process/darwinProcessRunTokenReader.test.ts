@@ -228,7 +228,7 @@ it
 );
 
 it.skipIf(process.platform === "win32")(
-  "uses the compiler-managed module cache instead of rebuilding system modules per REA process",
+  "uses the compiler-managed module cache instead of rebuilding system modules per Revo process",
   async () => {
     const directory = await createTestTempDirectory(
       "rea-process-token-module-cache-test-",

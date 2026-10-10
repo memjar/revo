@@ -441,7 +441,7 @@ describe("Ghidra configuration paths", () => {
       "GHIDRA_INSTALL_DIR and JAVA_HOME must be absolute",
     ],
   ])(
-    "rejects relative paths that REA's configuration parser rejects (%o)",
+    "rejects relative paths that Revo's configuration parser rejects (%o)",
     (paths, detail) => {
       const result = inspectGhidraInstallation(
         { environment: {}, ...paths, platform: "linux", architecture: "x64" },

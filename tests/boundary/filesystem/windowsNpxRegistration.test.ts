@@ -30,7 +30,7 @@ it.each([
       "mcp",
     ],
   },
-  { previousCommand: ["cmd", "/c", "npx", "-y", "rea-agents@5.0.0", "mcp"] },
+  { previousCommand: ["cmd", "/c", "npx", "-y", "@memjar/revo@5.0.0", "mcp"] },
 ])(
   "migrates Windows npx registration $previousCommand idempotently and uninstalls only REA",
   async ({ previousCommand }) => {
@@ -119,11 +119,11 @@ it("retains rea-named custom shell registrations without writing a backup", asyn
   const client = { name: "claude_code", configPath, format: "json" } as const;
   for (const command of [
     ["cmd.exe", "/d", "/c", "node", "custom.js", "mcp"],
-    ["cmd.exe", "/k", "npx", "-y", "rea-agents@5.0.0", "mcp"],
-    ["cmd.exe", "/c", "npx -y rea-agents@5.0.0 mcp"],
+    ["cmd.exe", "/k", "npx", "-y", "@memjar/revo@5.0.0", "mcp"],
+    ["cmd.exe", "/c", "npx -y @memjar/revo@5.0.0 mcp"],
     ["cmd.exe", "/c", "npx", "-y", "another-package", "mcp"],
-    ["cmd.exe", "/c", "npx", "-y", "rea-agents@5.0.0", "mcp", "&", "other"],
-    ["cmd.exe", "/c", "npx", "-y", "rea-agents@5.0.0 & other", "mcp"],
+    ["cmd.exe", "/c", "npx", "-y", "@memjar/revo@5.0.0", "mcp", "&", "other"],
+    ["cmd.exe", "/c", "npx", "-y", "@memjar/revo@5.0.0 & other", "mcp"],
   ]) {
     const original = JSON.stringify({
       mcpServers: { rea: { command: command[0], args: command.slice(1) } },

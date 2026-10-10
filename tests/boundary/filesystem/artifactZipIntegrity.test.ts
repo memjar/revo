@@ -89,7 +89,7 @@ it("preserves encrypted-member and corrupt-CRC observations", async () => {
       hash_status: "unavailable",
     }),
   );
-  // REA does not decrypt entries, so complete extraction is unsupported.
+  // Revo does not decrypt entries, so complete extraction is unsupported.
   const extractionRoot = join(root, "encrypted-output");
   expect(
     await new ArtifactProvider(process.env)
