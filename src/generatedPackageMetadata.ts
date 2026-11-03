@@ -1,7 +1,7 @@
 /** Generated from package.json and package-lock.json; do not edit. */
 export const PACKAGE_METADATA = {
   name: "@memjar/revo",
-  version: "6.2.0", // x-release-please-version
+  version: "0.1.0", // x-release-please-version
   serverSdkVersion: "2.3.1",
   clientSdkVersion: "2.3.1",
   coreSdkVersion: "2.3.1",
