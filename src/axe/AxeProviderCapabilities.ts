@@ -3,13 +3,13 @@ import type {
   ProviderIdentity,
 } from "../application/AnalysisProvider.js";
 
-export const RIZIN_PROVIDER_IDENTITY: ProviderIdentity = Object.freeze({
-  id: "rizin",
-  name: "Rizin",
+export const AXE_PROVIDER_IDENTITY: ProviderIdentity = Object.freeze({
+  id: "axe",
+  name: "Axe",
   version: null,
 });
 
-export const RIZIN_OPERATIONS = Object.freeze([
+export const AXE_OPERATIONS = Object.freeze([
   "list_documents",
   "list_names",
   "list_procedures",
@@ -32,15 +32,15 @@ export const RIZIN_OPERATIONS = Object.freeze([
 ] as const);
 
 const HEALTH_LIMITATIONS = Object.freeze([
-  "Rizin performs headless analysis via rzpipe; no GUI required.",
+  "Axe performs headless analysis via rzpipe; no GUI required.",
   "Decompilation uses rz-ghidra plugin (libghidra, no JVM).",
   "Analysis database is ephemeral per session.",
 ]);
 
 export const CAPABILITIES: readonly CapabilityDescriptor[] = Object.freeze(
-  RIZIN_OPERATIONS.map((operation) =>
+  AXE_OPERATIONS.map((operation) =>
     Object.freeze({
-      provider: RIZIN_PROVIDER_IDENTITY,
+      provider: AXE_PROVIDER_IDENTITY,
       operation,
       available: true,
       reason: null,

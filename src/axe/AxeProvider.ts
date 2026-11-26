@@ -22,16 +22,16 @@ import type { AnalysisError } from "../domain/analysisErrorBase.js";
 import { ok, err, type Result } from "../domain/result.js";
 import type { AppConfig } from "../config/types.js";
 import type { Logger } from "pino";
-import { RizinClient } from "./RizinClient.js";
+import { AxeClient } from "./AxeClient.js";
 import {
-  inspectRizinInstallation,
-  rizinInstallationDiagnostics,
-  type RizinInstallationInspection,
-} from "./RizinInstallation.js";
+  inspectAxeInstallation,
+  axeInstallationDiagnostics,
+  type AxeInstallationInspection,
+} from "./AxeInstallation.js";
 import {
   CAPABILITIES,
-  RIZIN_PROVIDER_IDENTITY,
-} from "./RizinProviderCapabilities.js";
+  AXE_PROVIDER_IDENTITY,
+} from "./AxeProviderCapabilities.js";
 
 const SUPPORTED_ARCHITECTURES = new Set([
   "x86",
@@ -43,8 +43,8 @@ const SUPPORTED_ARCHITECTURES = new Set([
   "riscv",
 ]);
 
-export class RizinProvider implements AnalysisProviderCandidate {
-  #installation: RizinInstallationInspection | undefined;
+export class AxeProvider implements AnalysisProviderCandidate {
+  #installation: AxeInstallationInspection | undefined;
   private readonly environment: NodeJS.ProcessEnv;
 
   constructor(
@@ -56,7 +56,7 @@ export class RizinProvider implements AnalysisProviderCandidate {
   }
 
   identity(): ProviderIdentity {
-    return RIZIN_PROVIDER_IDENTITY;
+    return AXE_PROVIDER_IDENTITY;
   }
 
   capabilities(): readonly CapabilityDescriptor[] {
@@ -69,14 +69,14 @@ export class RizinProvider implements AnalysisProviderCandidate {
       return {
         status: "unavailable",
         code: "executable_missing",
-        reason: "rizin is not installed. Install via: brew install rizin",
-        diagnostics: rizinInstallationDiagnostics(inspection),
+        reason: "axe is not installed. Install via: brew install axe",
+        diagnostics: axeInstallationDiagnostics(inspection),
       };
     return {
       status: "available",
       code: null,
       reason: null,
-      diagnostics: rizinInstallationDiagnostics(inspection),
+      diagnostics: axeInstallationDiagnostics(inspection),
     };
   }
 
@@ -85,7 +85,7 @@ export class RizinProvider implements AnalysisProviderCandidate {
       return {
         status: "unsupported",
         code: "target_kind_unsupported",
-        reason: `Rizin supports executables; got ${target.kind}`,
+        reason: `Axe supports executables; got ${target.kind}`,
         diagnostics: {},
       };
     if (
@@ -109,7 +109,7 @@ export class RizinProvider implements AnalysisProviderCandidate {
     if (!inspection.installed) return ok({ profile: null });
     const profile = createAnalysisProfile(
       {
-        ...RIZIN_PROVIDER_IDENTITY,
+        ...AXE_PROVIDER_IDENTITY,
         version: inspection.version ?? "unknown",
       },
       {},
@@ -122,17 +122,17 @@ export class RizinProvider implements AnalysisProviderCandidate {
     profile?: AnalysisProfileCommitment,
     _context?: AnalysisClientContext,
   ): AnalysisClient {
-    return new RizinAnalysisClient(target, profile, this.logger);
+    return new AxeAnalysisClient(target, profile, this.logger);
   }
 
-  #inspect(): RizinInstallationInspection {
-    if (!this.#installation) this.#installation = inspectRizinInstallation();
+  #inspect(): AxeInstallationInspection {
+    if (!this.#installation) this.#installation = inspectAxeInstallation();
     return this.#installation;
   }
 }
 
-class RizinAnalysisClient implements AnalysisClient {
-  #client: RizinClient | null = null;
+class AxeAnalysisClient implements AnalysisClient {
+  #client: AxeClient | null = null;
   #initialized = false;
 
   constructor(
@@ -222,7 +222,11 @@ class RizinAnalysisClient implements AnalysisClient {
       }
 
       return ok(
-        createAnalysisExecution(result, RIZIN_PROVIDER_IDENTITY, (this.profile ? { analysisProfile: this.profile } : {})),
+        createAnalysisExecution(
+          result,
+          AXE_PROVIDER_IDENTITY,
+          this.profile ? { analysisProfile: this.profile } : {},
+        ),
       );
     } catch (error: any) {
       return err({
@@ -238,9 +242,9 @@ class RizinAnalysisClient implements AnalysisClient {
     return ok(null);
   }
 
-  async #ensureClient(): Promise<RizinClient> {
+  async #ensureClient(): Promise<AxeClient> {
     if (!this.#client) {
-      this.#client = new RizinClient(this.target.path);
+      this.#client = new AxeClient(this.target.path);
       await this.#client.open();
     }
     if (!this.#initialized) {

@@ -1,7 +1,7 @@
 import { execFileSync } from "node:child_process";
 import type { JsonValue } from "../domain/jsonValue.js";
 
-export interface RizinInstallationInspection {
+export interface AxeInstallationInspection {
   readonly installed: boolean;
   readonly version: string | null;
   readonly path: string | null;
@@ -9,10 +9,10 @@ export interface RizinInstallationInspection {
   readonly hasRzBin: boolean;
 }
 
-export const inspectRizinInstallation = (): RizinInstallationInspection => {
+export const inspectAxeInstallation = (): AxeInstallationInspection => {
   try {
     const version =
-      execFileSync("rizin", ["-v"], {
+      execFileSync("axe", ["-v"], {
         timeout: 5000,
         encoding: "utf-8",
       })
@@ -21,7 +21,7 @@ export const inspectRizinInstallation = (): RizinInstallationInspection => {
 
     let path: string | null = null;
     try {
-      path = execFileSync("which", ["rizin"], {
+      path = execFileSync("which", ["axe"], {
         timeout: 3000,
         encoding: "utf-8",
       }).trim();
@@ -29,7 +29,7 @@ export const inspectRizinInstallation = (): RizinInstallationInspection => {
 
     let hasRzGhidra = false;
     try {
-      const plugins = execFileSync("rizin", ["-qc", "Lc"], {
+      const plugins = execFileSync("axe", ["-qc", "Lc"], {
         timeout: 5000,
         encoding: "utf-8",
       });
@@ -54,8 +54,8 @@ export const inspectRizinInstallation = (): RizinInstallationInspection => {
   }
 };
 
-export const rizinInstallationDiagnostics = (
-  inspection: RizinInstallationInspection,
+export const axeInstallationDiagnostics = (
+  inspection: AxeInstallationInspection,
 ): Record<string, JsonValue> => ({
   installed: inspection.installed,
   version: inspection.version,

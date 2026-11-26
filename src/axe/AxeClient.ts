@@ -1,7 +1,7 @@
 import { spawn, type ChildProcess } from "node:child_process";
 import type { JsonValue } from "../domain/jsonValue.js";
 
-export class RizinClient {
+export class AxeClient {
   #process: ChildProcess | null = null;
   #buffer = "";
 
@@ -11,7 +11,7 @@ export class RizinClient {
   ) {}
 
   async open(): Promise<void> {
-    this.#process = spawn("rizin", ["-q0", ...this.args, this.targetPath], {
+    this.#process = spawn("axe", ["-q0", ...this.args, this.targetPath], {
       stdio: ["pipe", "pipe", "pipe"],
     });
     await new Promise<void>((resolve, reject) => {
@@ -27,7 +27,7 @@ export class RizinClient {
 
   async command(cmd: string): Promise<string> {
     if (!this.#process?.stdin || !this.#process?.stdout)
-      throw new Error("Rizin process not running");
+      throw new Error("Axe process not running");
     return new Promise((resolve, reject) => {
       let result = "";
       const onData = (chunk: Buffer) => {

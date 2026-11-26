@@ -4,7 +4,7 @@ import type { BinarySession } from "../application/binary/BinarySession.js";
 import { HopperProvider } from "../hopper/HopperProvider.js";
 import { GhidraProvider } from "../ghidra/GhidraProvider.js";
 import { IdaProvider } from "../ida/IdaProvider.js";
-import { RizinProvider } from "../rizin/RizinProvider.js";
+import { AxeProvider } from "../axe/AxeProvider.js";
 import { CapstoneProvider } from "../capstone/CapstoneProvider.js";
 import type { Logger } from "pino";
 import { auxiliaryAnalysisProviderDeclarations } from "./auxiliaryAnalysisProviders.js";
@@ -27,11 +27,11 @@ export const createBinarySession = (
   const hopper = new HopperProvider(config, logger, environment);
   const ghidra = new GhidraProvider(config, logger, environment);
   const ida = new IdaProvider(config, environment);
-  const rizin = new RizinProvider(config, logger, environment);
+  const axe = new AxeProvider(config, logger, environment);
   const capstone = new CapstoneProvider(config, logger, environment);
   return composeBinarySession(
     new AnalysisProviderRegistry(
-      [hopper, ghidra, ida, rizin, capstone],
+      [hopper, ghidra, ida, axe, capstone],
       config.analysisProvider,
     ),
     auxiliaryAnalysisProviderDeclarations(environment).map(
