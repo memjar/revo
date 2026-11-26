@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased]
+
+### Features
+
+* **binary:** add Axe provider — lightweight headless analysis via Rizin (no JVM required)
+* **binary:** add Capstone provider — disassembly and binary parsing via libcapstone and LIEF
+* **binary:** add counter-detection skills (counter-re, secrets-scrub, fingerprint-evade)
+
 ## [6.2.0](https://github.com/morluto/rea/compare/rea-agents-6.1.0...rea-agents-6.2.0) (2026-10-09)
 
 
