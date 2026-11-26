@@ -68,7 +68,7 @@ export class RizinProvider implements AnalysisProviderCandidate {
     if (!inspection.installed)
       return {
         status: "unavailable",
-        code: "not_installed",
+        code: "executable_missing",
         reason: "rizin is not installed. Install via: brew install rizin",
         diagnostics: rizinInstallationDiagnostics(inspection),
       };
@@ -81,11 +81,11 @@ export class RizinProvider implements AnalysisProviderCandidate {
   }
 
   inspectTargetSupport(target: BinaryTarget): ProviderTargetSupport {
-    if (target.kind !== "native")
+    if (target.kind !== "executable")
       return {
         status: "unsupported",
         code: "target_kind_unsupported",
-        reason: `Rizin supports native binaries; got ${target.kind}`,
+        reason: `Rizin supports executables; got ${target.kind}`,
         diagnostics: {},
       };
     if (
@@ -107,10 +107,13 @@ export class RizinProvider implements AnalysisProviderCandidate {
   ) {
     const inspection = this.#inspect();
     if (!inspection.installed) return ok({ profile: null });
-    const profile = createAnalysisProfile({
-      ...RIZIN_PROVIDER_IDENTITY,
-      version: inspection.version ?? "unknown",
-    });
+    const profile = createAnalysisProfile(
+      {
+        ...RIZIN_PROVIDER_IDENTITY,
+        version: inspection.version ?? "unknown",
+      },
+      {},
+    );
     return ok({ profile });
   }
 
@@ -219,9 +222,7 @@ class RizinAnalysisClient implements AnalysisClient {
       }
 
       return ok(
-        createAnalysisExecution(result, RIZIN_PROVIDER_IDENTITY, {
-          analysisProfile: this.profile,
-        }),
+        createAnalysisExecution(result, RIZIN_PROVIDER_IDENTITY, (this.profile ? { analysisProfile: this.profile } : {})),
       );
     } catch (error: any) {
       return err({

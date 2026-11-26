@@ -59,7 +59,7 @@ export class CapstoneProvider implements AnalysisProviderCandidate {
     if (!i.hasCapstone && !i.hasLief)
       return {
         status: "unavailable",
-        code: "not_installed",
+        code: "executable_missing",
         reason:
           "Neither capstone nor LIEF found. Install: pip3 install capstone lief",
         diagnostics: capstoneInstallationDiagnostics(i),
@@ -73,11 +73,11 @@ export class CapstoneProvider implements AnalysisProviderCandidate {
   }
 
   inspectTargetSupport(target: BinaryTarget): ProviderTargetSupport {
-    if (target.kind !== "native")
+    if (target.kind !== "executable")
       return {
         status: "unsupported",
         code: "target_kind_unsupported",
-        reason: `Capstone supports native binaries; got ${target.kind}`,
+        reason: `Capstone supports executables; got ${target.kind}`,
         diagnostics: {},
       };
     return { status: "supported", code: null, reason: null, diagnostics: {} };
@@ -89,10 +89,13 @@ export class CapstoneProvider implements AnalysisProviderCandidate {
   ) {
     const i = this.#inspect();
     if (!i.hasCapstone && !i.hasLief) return ok({ profile: null });
-    const profile = createAnalysisProfile({
-      ...CAPSTONE_PROVIDER_IDENTITY,
-      version: i.capstoneVersion ?? "unknown",
-    });
+    const profile = createAnalysisProfile(
+      {
+        ...CAPSTONE_PROVIDER_IDENTITY,
+        version: i.capstoneVersion ?? "unknown",
+      },
+      {},
+    );
     return ok({ profile });
   }
 
@@ -198,9 +201,7 @@ class CapstoneAnalysisClient implements AnalysisClient {
       }
 
       return ok(
-        createAnalysisExecution(result, CAPSTONE_PROVIDER_IDENTITY, {
-          analysisProfile: this.profile,
-        }),
+        createAnalysisExecution(result, CAPSTONE_PROVIDER_IDENTITY, (this.profile ? { analysisProfile: this.profile } : {})),
       );
     } catch (error: any) {
       return err({

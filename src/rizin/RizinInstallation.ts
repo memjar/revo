@@ -1,4 +1,5 @@
 import { execFileSync } from "node:child_process";
+import type { JsonValue } from "../domain/jsonValue.js";
 
 export interface RizinInstallationInspection {
   readonly installed: boolean;
@@ -55,7 +56,7 @@ export const inspectRizinInstallation = (): RizinInstallationInspection => {
 
 export const rizinInstallationDiagnostics = (
   inspection: RizinInstallationInspection,
-): Record<string, unknown> => ({
+): Record<string, JsonValue> => ({
   installed: inspection.installed,
   version: inspection.version,
   path: inspection.path,

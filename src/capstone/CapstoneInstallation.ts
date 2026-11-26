@@ -1,4 +1,5 @@
 import { execFileSync } from "node:child_process";
+import type { JsonValue } from "../domain/jsonValue.js";
 
 export interface CapstoneInstallationInspection {
   readonly hasCapstone: boolean;
@@ -60,7 +61,7 @@ export const inspectCapstoneInstallation =
 
 export const capstoneInstallationDiagnostics = (
   i: CapstoneInstallationInspection,
-): Record<string, unknown> => ({
+): Record<string, JsonValue> => ({
   capstone: i.hasCapstone,
   capstone_version: i.capstoneVersion,
   lief: i.hasLief,
